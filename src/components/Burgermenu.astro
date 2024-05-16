@@ -1,0 +1,137 @@
+---
+
+---
+
+<nav class="navbar">
+  <ul class="nav_menu">
+    <li class="nav_item">
+      <a href="/index" class="nav_link">Forside</a>
+    </li>
+    <li class="nav_item">
+      <a href="/omgrums" class="nav_link">Om Grums</a>
+    </li>
+  </ul>
+
+  <div class="hamburger">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+</nav>
+
+<script>
+  const menu_btn = document.querySelector(".hamburger");
+  const menu = document.querySelector(".navbar");
+
+  window.addEventListener("load", sidenVises);
+
+  function sidenVises() {
+    console.log("sidenVises");
+
+    menu_btn.addEventListener("click", function () {
+      menu_btn.classList.toggle("is-active");
+      menu.classList.toggle("is-active");
+    });
+  }
+</script>
+
+<style>
+  li {
+    list-style: none;
+  }
+
+  .nav_item a {
+    color: #132405;
+    text-decoration: none;
+    font-size: 20px;
+  }
+
+  .navbar {
+    min-height: 70px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 30px;
+    /* margin-top: 20px; */
+  }
+
+  .nav_menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 100px;
+    margin-right: 50px;
+    padding: 0;
+    padding-bottom: 0;
+  }
+
+  .nav_branding {
+    margin-left: 20px;
+  }
+
+  .nav_link {
+    transition: 0.7s ease;
+  }
+
+  .nav_link:hover {
+    color: #3f793a;
+    text-decoration: none;
+  }
+
+  .hamburger {
+    display: none;
+    cursor: pointer;
+  }
+
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #aea5e3;
+  }
+
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav_menu {
+      position: absolute;
+      left: -100%;
+      top: 130px;
+      gap: 0;
+      flex-direction: column;
+      width: 100%;
+      height: 33%;
+      text-align: center;
+      transition: 0.3s;
+      z-index: 1;
+      background-color: #aea5e3;
+      padding: 60px;
+      padding-bottom: 400%;
+    }
+
+    .nav_item {
+      margin: 16px 0;
+    }
+
+    .nav_menu.active {
+      left: 0;
+    }
+  }
+</style>

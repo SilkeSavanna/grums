@@ -1,22 +1,22 @@
 ---
-
+import "../styles/general.css";
 ---
 
-<div class="knap_container">
-  <a href="#">Knap</a>
-</div>
+<button class="tilmeld_knap"> Tilmeld dig her </button>
 
 <style>
-  .knap_container {
-    background-color: #4caf50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+  .tilmeld_knap {
+    background-color: var(---background-color);
+    border: 2px solid;
+    color: var(--text-color);
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: var(--font-size-h3-mobile);
+  }
+
+  @media (min-width: 800px) {
+    .tilmeld_knap {
+      font-size: var(--font-size-h3-desktop);
+    }
   }
 </style>

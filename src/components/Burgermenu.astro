@@ -1,5 +1,5 @@
 ---
-
+import "../styles/general.css";
 ---
 
 <nav class="navbar">
@@ -19,31 +19,20 @@
   </div>
 </nav>
 
-<script>
-  const menu_btn = document.querySelector(".hamburger");
-  const menu = document.querySelector(".navbar");
-
-  window.addEventListener("load", sidenVises);
-
-  function sidenVises() {
-    console.log("sidenVises");
-
-    menu_btn.addEventListener("click", function () {
-      menu_btn.classList.toggle("is-active");
-      menu.classList.toggle("is-active");
-    });
-  }
-</script>
-
 <style>
   li {
     list-style: none;
   }
 
   .nav_item a {
-    color: #132405;
+    color: var(--beige);
     text-decoration: none;
-    font-size: 20px;
+    font-size: var(--font-size-h1-desktop);
+    border: 1px solid var(--beige);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .navbar {
@@ -64,18 +53,17 @@
     padding: 0;
     padding-bottom: 0;
   }
-
+  /* 
   .nav_branding {
     margin-left: 20px;
-  }
+  } */
 
   .nav_link {
     transition: 0.7s ease;
   }
 
   .nav_link:hover {
-    color: #3f793a;
-    text-decoration: none;
+    text-decoration: underline;
   }
 
   .hamburger {
@@ -90,7 +78,8 @@
     margin: 5px auto;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    background-color: #aea5e3;
+    background-color: black;
+    z-index: 20;
   }
 
   @media (max-width: 768px) {
@@ -113,7 +102,7 @@
     .nav_menu {
       position: absolute;
       left: -100%;
-      top: 130px;
+      top: 0px;
       gap: 0;
       flex-direction: column;
       width: 100%;
@@ -121,7 +110,7 @@
       text-align: center;
       transition: 0.3s;
       z-index: 1;
-      background-color: #aea5e3;
+      background-color: var(---red);
       padding: 60px;
       padding-bottom: 400%;
     }
@@ -135,3 +124,13 @@
     }
   }
 </style>
+
+<script>
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav_menu");
+
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  });
+</script>

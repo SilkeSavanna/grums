@@ -1,0 +1,147 @@
+---
+import "../styles/general.css";
+---
+
+<!-- <head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head> -->
+<div class="karrusel">
+  <div class="container">
+    <div class="slider_wrapper">
+      <button id="prev_slide" class="slide_button"><img src="public/img/karruselpilv.png" alt="pil til venstre" /></button>
+      <button id="next_slide" class="slide_button"><img src="public/img/karruselpilr.png" alt="pil til højre" /></button>
+      <div class="image_list">
+        <img src="public/img/billede1.png" alt="image1" class="image_item" />
+        <img src="public/img/billede2.png" alt="image2" class="image_item2" />
+        <img src="public/img/billede3.png" alt="image3" class="image_item" />
+        <img src="public/img/billede4.png" alt="image4" class="image_item" />
+        <img src="public/img/billede6.webp" alt="image6" class="image_item3" />
+
+        <img src="public/img/billede5.webp" alt="image5" class="image_item" />
+        <img src="public/img/billede7.webp" alt="image7" class="image_item" />
+      </div>
+    </div>
+    <div class="slider_scrollbar">
+      <div class="scrollbar_track">
+        <div class="scrollbar_thumb"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings:
+      "FILL" 0,
+      "wght" 400,
+      "GRAD" 0,
+      "opsz" 24;
+  }
+
+  .karrusel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    width: 95%;
+    max-width: 1200px;
+  }
+  .slider_wrapper .image_list {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    overflow-x: auto;
+    font-size: 0;
+    scrollbar-width: none;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .slider_wrapper .image_list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .slider_wrapper .image_list .image_item {
+    width: 325px;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  .image_item2 {
+    width: 380px;
+    margin: auto;
+  }
+
+  .image_item3 {
+    width: 480px;
+    margin: auto;
+  }
+
+  .container .slider_scrollbar {
+    height: 24px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* border-radius: inherit;
+    position: relative;
+    border-radius: 4px; */
+  }
+
+  .slider_scrollbar .scrollbar_track {
+    height: 2px;
+    width: 100%;
+    background: lightgray;
+    border-radius: 4px;
+    position: relative;
+  }
+
+  .slider_scrollbar .scrollbar_thumb:active {
+    cursor: grabbing;
+    height: 3px;
+    top: -2px;
+  }
+
+  .slider_scrollbar .scrollbar_thumb:hover {
+    height: 3px;
+  }
+
+  .slider_scrollbar .scrollbar_thumb {
+    height: 100%;
+    width: 20%;
+    background: var(---red);
+    border-radius: inherit;
+    cursor: grab;
+    /* position: absolute; */
+    overflow: auto;
+  }
+
+  .slider_scrollbar .scrollbar_thumb::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;
+    bottom: -10px;
+  }
+
+  .slider_wrapper .slide_button {
+    height: 50px;
+    width: 50px;
+    border: none;
+    padding: 0;
+    /* background-color: transparent !important; */
+    cursor: pointer;
+  }
+
+  .slide_button img {
+    background-color: transparent;
+  }
+</style>

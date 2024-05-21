@@ -6,6 +6,7 @@ import Footer from "../components/Footer.astro";
 import Evenliste from "../components/Eventliste.astro";
 import Card from "../components/Card.astro";
 import Eventliste from "../components/Eventliste.astro";
+import Karruselforside from "../components/Karruselforside.astro";
 
 const data = await fetch("https://fkvbxsksimndhsbkchww.supabase.co/rest/v1/events", {
   method: "GET",
@@ -59,7 +60,7 @@ console.log(data);
 
       <img class="veardiord3" src="../../public/img/fælleskab.webp" alt="fælleskab_keyword" />
 
-      <p>Vi er passioneret for det egalitære og afslappede og arbejder målrettet på at opbygge et fællesskab præget af tryghed og ligeværdighed.</p>
+      <div class="forside_p"><p>Vi er passioneret for det egalitære og afslappede og arbejder målrettet på at opbygge et fællesskab præget af tryghed og ligeværdighed.</p></div>
 
       <!-- <div class=" dropdown">
         <label class="button" for="">Måned</label>
@@ -74,13 +75,7 @@ console.log(data);
         </div>
     </div> -->
 
-      <section class="events">
-        {
-          data.map((event) => {
-            return <Eventliste data={event} />;
-          })
-        }
-      </section>
+      <Karruselforside />
 
       <div>
         <a href=""></a>
@@ -137,7 +132,7 @@ console.log(data);
     display: none;
   }
 
-  p {
+  .forside_p p {
     padding-left: 80px;
     padding-right: 80px;
     padding-top: 100px;
@@ -240,6 +235,19 @@ console.log(data);
     border-radius: 5px;
   }
 
+  @media (min-width: 600px) {
+    .forside_p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .forside_p p {
+      position: relative;
+      font-size: var(--font-size-p-desktop);
+      max-width: 500px;
+    }
+  }
+
   @media (min-width: 800px) {
     #hero {
       height: 750px;
@@ -267,10 +275,15 @@ console.log(data);
       font-size: var(--font-size-h3-desktop);
     }
 
-    p {
+    .forside_p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .forside_p p {
+      position: relative;
       font-size: var(--font-size-p-desktop);
-      padding-left: 500px;
-      padding-right: 500px;
+      max-width: 500px;
     }
 
     .overskrifter {

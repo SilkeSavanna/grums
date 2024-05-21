@@ -1,5 +1,13 @@
 ---
 import "../styles/general.css";
+import Eventliste from "./Eventliste.astro";
+
+const data = await fetch("https://fkvbxsksimndhsbkchww.supabase.co/rest/v1/events", {
+  method: "GET",
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZrdmJ4c2tzaW1uZGhzYmtjaHd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU4NjAzNjIsImV4cCI6MjAzMTQzNjM2Mn0.I7TEX9S8OxEgBrIqbrRGY80VTS1Du_GIGu_tTfMhudk",
+  },
+}).then((res) => res.json());
 ---
 
 <div class="karrusel_forside">
@@ -7,12 +15,13 @@ import "../styles/general.css";
     <div class="slider_event">
       <button id="prev_slide" class="pil"> <img src="/public/img/pil_left.png" alt="pil_knap" /> </button>
       <div class="img_event">
-        <img src="/public/img/forkertimg.jpeg" alt="eventimg1" class="img_event_item" />
-        <img src="/public/img/forkertimg.jpeg" alt="eventimg2" class="img_event_item" />
-        <img src="/public/img/forkertimg.jpeg" alt="eventimg3" class="img_event_item" />
-        <img src="/public/img/forkertimg.jpeg" alt="eventimg1" class="img_event_item" />
-        <img src="/public/img/forkertimg.jpeg" alt="eventimg2" class="img_event_item" />
-        <img src="/public/img/forkertimg.jpeg" alt="eventimg3" class="img_event_item" />
+        <section class="events">
+          {
+            data.map((event) => {
+              return <Eventliste data={event} />;
+            })
+          }
+        </section>
       </div>
       <button id="next_slide" class="pil"> <img src="/public/img/pil_right.png" alt="pil_knap" /> </button>
     </div>
@@ -30,10 +39,8 @@ import "../styles/general.css";
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 20vh;
-    margin: 20px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 90px;
+    margin-bottom: 90px;
   }
 
   .slider_event .img_event {
@@ -49,16 +56,15 @@ import "../styles/general.css";
     display: none;
   }
 
-  .slider_event .img_event .img_event_item {
-    width: 150px;
-    height: 200px;
+  .slider_event .img_event {
+    width: 390px;
     object-fit: cover;
   }
 
-  .container_event {
+  /* .container_event {
     max-width: 550px;
     width: 95%;
-  }
+  } */
 
   .slider_event {
     position: relative;
@@ -74,28 +80,96 @@ import "../styles/general.css";
     outline: none;
     cursor: pointer;
     border-radius: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-90%);
   }
 
   .slider_event .pil:hover {
     opacity: 30%;
   }
-
-  .slider_event .pil#prev_slide {
-    left: -20px;
-  }
-
-  .slider_event .pil#next_slide {
-    right: -20px;
-  }
-
-  @media (min-width: 800px) {
+  /* 
     .slider_event .pil#prev_slide {
-      left: -50px;
+      left: -20px;
     }
 
     .slider_event .pil#next_slide {
-      right: -50px;
+      right: -20px;
+    } */
+
+  .slider_event .pil#prev_slide {
+    left: 320px;
+    top: -1%;
+  }
+
+  .slider_event .pil#next_slide {
+    right: 3px;
+    top: -1%;
+  }
+
+  .events {
+    display: flex;
+    flex-direction: row;
+  }
+
+  @media (min-width: 800px) {
+    .karrusel_forside {
+      /* width: 1430px; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 90px;
+    }
+
+    .slider_event .img_event {
+      display: grid;
+      gap: 15px;
+      font-size: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .slider_event .img_event::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slider_event .img_event {
+      width: 795px;
+      object-fit: cover;
+    }
+    .slider_event {
+      position: relative;
+    }
+
+    .slider_event .pil {
+      position: absolute;
+      top: 50%;
+      height: 30px;
+      width: 30px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      border-radius: 50%;
+      transform: translateY(-90%);
+    }
+
+    .slider_event .pil:hover {
+      opacity: 30%;
+    }
+
+    .slider_event .pil#prev_slide {
+      left: -120px;
+      top: 50%;
+    }
+
+    .slider_event .pil#next_slide {
+      right: -120px;
+      top: 50%;
+    }
+
+    .events {
+      display: flex;
+      flex-direction: row;
     }
   }
 </style>

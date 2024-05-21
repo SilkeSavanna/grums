@@ -53,6 +53,7 @@ import "../styles/general.css";
   }
 
   .nav-menu {
+    display: none;
     position: absolute;
     right: -150%;
     background-color: var(---red);
@@ -68,14 +69,15 @@ import "../styles/general.css";
   .nav-menu.active {
     right: 0;
     z-index: 1000;
+    display: block;
   }
 
   .hamburger {
     display: block;
     cursor: pointer;
     margin-left: 80%;
-    margin-top: 5%;
-    position: relative;
+    position: absolute;
+    top: 30px;
   }
 
   .hamburger.active {
@@ -86,7 +88,7 @@ import "../styles/general.css";
     display: block;
     width: 25px;
     height: 3px;
-    margin: 5px auto;
+    margin-bottom: 5px;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     background-color: var(---red);
@@ -109,7 +111,7 @@ import "../styles/general.css";
 
   @media (min-width: 800px) {
     .hamburger {
-      margin-top: 2%;
+
       margin-left: 90%;
     }
     .nav-menu {
@@ -119,7 +121,10 @@ import "../styles/general.css";
       align-items: center;
       width: 50%;
       list-style-type: none;
+      position: absolute;
     }
+
+   
 
 
   }

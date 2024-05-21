@@ -1,0 +1,65 @@
+---
+const {data} =Astro.props;
+console.log(data)
+
+import "../styles/general.css";
+
+---
+
+
+<article>
+    <img src={"/public/img/"+ `${data.image}`} alt="">
+    <div class="text">
+    <p>{data.dato}</p>
+    <p>{data.price}</p>
+</div>
+</article>
+
+<style>
+ article {
+        width: 200px;
+        color: white;
+        margin-left: 6rem;
+        white-space: nowrap;
+
+        margin-top: 40px;
+      }
+
+      .p{
+        font-size: var(--font-size-p-mobile);
+        color: var(---red);
+
+      }
+    
+      .text{
+        border: 2px solid var(---red);
+        display: flex;
+        justify-content: center;
+        gap: 80px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+       
+      }
+   
+
+      @media (min-width: 800px){
+        article {
+        width: 300px;
+        color: white;
+        margin-left: 6rem;
+        white-space: nowrap;
+        height: 500px;
+      }
+    
+      .text{
+        border: 2px solid var(---red);
+        display: flex;
+        justify-content: center;
+        gap: 130px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      }
+    </style>
+
+

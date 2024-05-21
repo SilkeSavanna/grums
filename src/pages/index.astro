@@ -3,22 +3,22 @@ import Button from "../components/Button.astro";
 import Eventknap from "../components/Eventknap.astro";
 import Burgermenu from "../components/Burgermenu.astro";
 import Footer from "../components/Footer.astro";
+import Evenliste from "../components/Eventliste.astro";
 import Card from "../components/Card.astro";
+import Eventliste from "../components/Eventliste.astro";
 
-fetch("https://couztkypuvadixszzvmk.supabase.co/rest/v1/events", {
-  method: "GET",
-  headers: {
-    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZrdmJ4c2tzaW1uZGhzYmtjaHd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU4NjAzNjIsImV4cCI6MjAzMTQzNjM2Mn0.I7TEX9S8OxEgBrIqbrRGY80VTS1Du_GIGu_tTfMhudk",
-  },
-})
+const data = await fetch("https://fkvbxsksimndhsbkchww.supabase.co/rest/v1/events", {
+  method:"GET",
+  headers:{
+    apikey:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZrdmJ4c2tzaW1uZGhzYmtjaHd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU4NjAzNjIsImV4cCI6MjAzMTQzNjM2Mn0.I7TEX9S8OxEgBrIqbrRGY80VTS1Du_GIGu_tTfMhudk"
+  }
+}).then(res=>res.json())
 
-.then(res=>res.json())
-.then(showData)
+//https://fkvbxsksimndhsbkchww.supabase.co/rest/v1/events
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZrdmJ4c2tzaW1uZGhzYmtjaHd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU4NjAzNjIsImV4cCI6MjAzMTQzNjM2Mn0.I7TEX9S8OxEgBrIqbrRGY80VTS1Du_GIGu_tTfMhudk
+// 
 
-function showData(items){
-  console.log(items)
-  // items.forEach()
-}
+console.log(data)
 ---
 
 <html lang="en">
@@ -60,6 +60,7 @@ function showData(items){
       <img class="veardiord3" src="../../public/img/fælleskab.webp" alt="fælleskab_keyword" />
 
       <p>Vi er passioneret for det egalitære og afslappede og arbejder målrettet på at opbygge et fællesskab præget af tryghed og ligeværdighed.</p>
+    
 
       <!-- <div class=" dropdown">
         <label class="button" for="">Måned</label>
@@ -74,11 +75,13 @@ function showData(items){
         </div>
     </div> -->
 
-      <section class="events">
-        <Card></Card>
-
-</section>
-      <section class="events"></section>
+    <section class="events">
+      {data.map(event=>{
+        return <Eventliste data={event}/>
+      })}
+     
+    </section>
+   
 
       <div>
         <a href=""></a>
@@ -304,6 +307,12 @@ transform: rotate(-10deg);
     top: 1020px;   
     left: 45%;
     transform: rotate(-12deg);
+  }
+
+  .events{
+    /* display: flex;
+  flex-direction: row; */
+   
   }
 
   }

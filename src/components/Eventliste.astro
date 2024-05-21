@@ -1,65 +1,57 @@
 ---
-const {data} =Astro.props;
-console.log(data)
+const { data } = Astro.props;
+console.log(data);
 
 import "../styles/general.css";
-
 ---
 
-
 <article>
-    <img src={"/public/img/"+ `${data.image}`} alt="">
-    <div class="text">
+  <img src={"/public/img/" + `${data.image}`} alt="" />
+  <div class="text">
     <p>{data.dato}</p>
     <p>{data.price}</p>
-</div>
+  </div>
 </article>
 
 <style>
- article {
-        width: 200px;
-        color: white;
-        margin-left: 6rem;
-        white-space: nowrap;
+  article {
+    width: 180px;
+    color: white;
+    padding: 5px;
+    white-space: nowrap;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 
-        margin-top: 40px;
-      }
+  p {
+    font-size: var(--font-size-p-mobile);
+    color: var(---red);
+  }
 
-      .p{
-        font-size: var(--font-size-p-mobile);
-        color: var(---red);
+  .text {
+    border: 2px solid var(---red);
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 
-      }
-    
-      .text{
-        border: 2px solid var(---red);
-        display: flex;
-        justify-content: center;
-        gap: 80px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-       
-      }
-   
+  @media (min-width: 800px) {
+    article {
+      width: 260px;
+      color: white;
+      white-space: nowrap;
+      padding: 10px;
+    }
 
-      @media (min-width: 800px){
-        article {
-        width: 300px;
-        color: white;
-        margin-left: 6rem;
-        white-space: nowrap;
-        height: 500px;
-      }
-    
-      .text{
-        border: 2px solid var(---red);
-        display: flex;
-        justify-content: center;
-        gap: 130px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-      }
-      }
-    </style>
-
-
+    .text {
+      border: 2px solid var(---red);
+      display: flex;
+      justify-content: center;
+      gap: 100px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+</style>

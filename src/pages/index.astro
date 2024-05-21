@@ -5,16 +5,20 @@ import Burgermenu from "../components/Burgermenu.astro";
 import Footer from "../components/Footer.astro";
 import Card from "../components/Card.astro"
 
-const events = await fetch("https://couztkypuvadixszzvmk.supabase.co/rest/v1/KarruselFestival", {
+fetch("https://couztkypuvadixszzvmk.supabase.co/rest/v1/events", {
   method: "GET",
   headers: {
-    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNvdXp0a3lwdXZhZGl4c3p6dm1rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0MDk2NDgsImV4cCI6MjAyNTk4NTY0OH0.oMKp-E0V7IIEqcgHIkiLPHgJ0ErGic-JPce1db7I5js",
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZrdmJ4c2tzaW1uZGhzYmtjaHd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU4NjAzNjIsImV4cCI6MjAzMTQzNjM2Mn0.I7TEX9S8OxEgBrIqbrRGY80VTS1Du_GIGu_tTfMhudk",
   },
-}).then((response) => {
-  return response.json();
-});
+})
 
-console.log("events", events);
+.then(res=>res.json())
+.then(showData)
+
+function showData(items){
+  console.log(items)
+  // items.forEach()
+}
 ---
 
 <html lang="en">
@@ -72,8 +76,8 @@ console.log("events", events);
         </div>
     </div> -->
       <section class="events">
-        
-        
+        <Card></Card>
+
 </section>
 
       <div>

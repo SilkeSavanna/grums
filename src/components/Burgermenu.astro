@@ -16,13 +16,13 @@ import "../styles/general.css";
       <a class="nav-link" href="/omgrums">Om Grums</a>
     </li>
   </ul>
-
+</nav>
   <div class="hamburger">
     <span class="bar"></span>
     <span class="bar"></span>
     <span class="bar"></span>
   </div>
-</nav>
+
 
 <style>
   .nav-link {
@@ -36,13 +36,17 @@ import "../styles/general.css";
     padding: 15px 60px;
     max-width: 200px;
     min-width: 250px;
+    font-family: Roboto;
+
   }
 
-  .nav-item li {
+  .nav-item {
     list-style-type: none;
     display: flex;
     justify-content: center;
   }
+
+ 
 
   .nav-link:hover {
     color: var(---red);
@@ -55,11 +59,11 @@ import "../styles/general.css";
   .nav-menu {
     display: none;
     position: absolute;
-    right: -150%;
+    right: -1000px;
     background-color: var(---red);
     margin-top: -39px;
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     text-align: center;
     transition: 0.5s;
@@ -75,13 +79,17 @@ import "../styles/general.css";
   .hamburger {
     display: block;
     cursor: pointer;
-    margin-left: 80%;
     position: absolute;
+    right: 30px;
     top: 30px;
+    z-index: 10000;
+    transition: right .4s ease-in;
   }
 
+
   .hamburger.active {
-    z-index: 1000;
+    right: 40px;
+    transition: right .4s ease-in;
   }
 
   .bar {
@@ -112,32 +120,28 @@ import "../styles/general.css";
   @media (min-width: 800px) {
     .hamburger {
 
-      margin-left: 90%;
+      /* margin-left: 90%; */
     }
     .nav-menu {
-      display: flex;
+      display: none;
       flex-direction: column;
       text-align: center;
       align-items: center;
-      width: 50%;
+      width: 50vw;
       list-style-type: none;
       position: absolute;
     }
-
-   
-
-
   }
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".nav-menu");
+  const burgerMenu = document.querySelector(".nav-menu"); // Erstat ".nav-menu" med din burgermenu's selector
+  const burgerButton = document.querySelector(".hamburger"); // Erstat ".hamburger" med din burgerknap's selector
 
-    hamburger.addEventListener("click", () => {
-      hamburger.classList.toggle("active");
-      navMenu.classList.toggle("active");
-    });
-  });
+  burgerButton.addEventListener('click', toggleSideMenu)
+
+  function toggleSideMenu() {
+    burgerMenu.classList.toggle('active')
+    burgerButton.classList.toggle('active')
+  }
 </script>

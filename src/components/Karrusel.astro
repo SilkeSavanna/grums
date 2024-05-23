@@ -2,21 +2,21 @@
 import "../styles/general.css";
 ---
 
-<!-- <head>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-</head> -->
 <div class="karrusel">
   <div class="container">
     <div class="slider_wrapper">
-      <button id="prev_slide" class="slide_button"><img src="public/img/karruselpilv.png" alt="pil til venstre" /></button>
-      <button id="next_slide" class="slide_button"><img src="public/img/karruselpilr.png" alt="pil til højre" /></button>
+      <div class="slider_button_wrapper">
+        <div class="slider_button_container">
+          <button id="forrig_slide" class="arrow"> <img src="/public/img/pil_left.png" alt="pil_knap" /> </button>
+          <button id="naste_slide" class="arrow"> <img src="/public/img/pil_right.png" alt="pil_knap" /> </button>
+        </div>
+      </div>
       <div class="image_list">
         <img src="public/img/billede1.png" alt="image1" class="image_item" />
         <img src="public/img/billede2.png" alt="image2" class="image_item2" />
         <img src="public/img/billede3.png" alt="image3" class="image_item" />
         <img src="public/img/billede4.png" alt="image4" class="image_item" />
         <img src="public/img/billede6.webp" alt="image6" class="image_item3" />
-
         <img src="public/img/billede5.webp" alt="image5" class="image_item" />
         <img src="public/img/billede7.webp" alt="image7" class="image_item" />
       </div>
@@ -48,7 +48,7 @@ import "../styles/general.css";
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 60vh;
   }
 
   .container {
@@ -90,9 +90,6 @@ import "../styles/general.css";
     width: 100%;
     display: flex;
     align-items: center;
-    /* border-radius: inherit;
-    position: relative;
-    border-radius: 4px; */
   }
 
   .slider_scrollbar .scrollbar_track {
@@ -119,29 +116,80 @@ import "../styles/general.css";
     background: var(---red);
     border-radius: inherit;
     cursor: grab;
-    /* position: absolute; */
+    position: absolute;
     overflow: auto;
   }
 
   .slider_scrollbar .scrollbar_thumb::after {
     content: "";
     position: absolute;
-    left: 0;
     right: 0;
     top: -10px;
     bottom: -10px;
   }
 
-  .slider_wrapper .slide_button {
-    height: 50px;
-    width: 50px;
+  .slider_wrapper .arrow {
+    height: 30px;
+    width: 30px;
+    background-color: transparent;
     border: none;
-    padding: 0;
-    /* background-color: transparent !important; */
+    outline: none;
     cursor: pointer;
+    border-radius: 50%;
+    opacity: 1;
   }
 
-  .slide_button img {
-    background-color: transparent;
+  .slider_wrapper .arrow:hover {
+    opacity: 0.5;
+  }
+
+  .slider_button_wrapper {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: right;
+    height: 35px;
+  }
+  .slider_button_container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 80px;
+  }
+
+  @media (min-width: (1200/95)px) {
+    .slider_button_container {
+      margin-right: 5%;
+    }
   }
 </style>
+
+<script>
+  console.log("run");
+  const prevButton = document.querySelector("#forrig_slide");
+  const nextButton = document.getElementById("naste_slide");
+  const imgContainer = document.querySelector(".slider_wrapper .image_list");
+  let maxScrollLeft;
+  const scrollAmount = 250;
+  const scrollbarThumb = document.querySelector(".slider_scrollbar .scrollbar_thumb");
+
+  window.addEventListener("load", () => {
+    maxScrollLeft = imgContainer.scrollWidth - imgContainer.clientWidth;
+  });
+
+  window.addEventListener("resize", () => {
+    maxScrollLeft = imgContainer.scrollWidth - imgContainer.clientWidth;
+  });
+
+  imgContainer.addEventListener("scroll", () => {
+    scrollbarThumb.style.left = `${(imgContainer.scrollLeft / maxScrollLeft) * 80}% `;
+  });
+
+  prevButton.addEventListener("click", () => {
+    imgContainer.scrollLeft -= scrollAmount;
+  });
+
+  nextButton.addEventListener("click", () => {
+    imgContainer.scrollLeft += scrollAmount;
+  });
+</script>

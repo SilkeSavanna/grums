@@ -34,8 +34,8 @@ import Mainlayout from "../layouts/mainlayout.astro";
 
       <div class="forside_p"><p>Vi er passioneret for det egalitære og afslappede og arbejder målrettet på at opbygge et fællesskab præget af tryghed og ligeværdighed.</p></div>
 
-     <div class="dropdown">
-        <label class="button" for="" onclick="toggleDropdown()">Måned</label>
+     <div id="events" class="dropdown">
+        <label class="button" for="">Måned</label>
         
         <div class="dropdown_content">
             <button data-month="Juni" >Juni</button>
@@ -48,7 +48,7 @@ import Mainlayout from "../layouts/mainlayout.astro";
         </div>
     </div>  
 
-      <Karruselforside />
+      <Karruselforside/>
 
       <div class="overskrifter">
         <h3>Vin & Øl</h3>
@@ -187,19 +187,7 @@ import Mainlayout from "../layouts/mainlayout.astro";
           
         }
 
-  /* .dropdown_flex {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 20px;
-    margin-top: 50px;
-    margin-bottom: 30px;
-    gap: 10px;
-    font-size: 15px;
-  }
-  .link {
-    text-decoration: none;
-  } */
+
 
   .button {
     display: inline-block;
@@ -322,9 +310,6 @@ import Mainlayout from "../layouts/mainlayout.astro";
 
 <script>
 
-
-// document.addEventListener("DOMContentLoaded", () => {
-  // const btns = document.querySelectorAll("button");
   const cards = document.querySelectorAll("a");
 
  
@@ -354,6 +339,8 @@ if (dropdown) {
     });
   });
 }
+
+
 
 
 

@@ -1,17 +1,18 @@
 ---
 const { data } = Astro.props;
-console.log(data);
 
 import "../styles/general.css";
 ---
 
+<a data-filter={data.month} href={`events/${data.slug}`}>
 <article>
-  <img src={"/public/img/" + `${data.image}`} alt="" />
+  <img src={"/public/img/" + `${data.image}`} alt="img_event" />
   <div class="text">
-    <p>{data.dato}</p>
-    <p>{data.price}</p>
+    <p>Dato: {data.dato}</p>
+   <b><p>{data.price}kr.</p></b> 
   </div>
 </article>
+</a>
 
 <style>
   article {
@@ -23,6 +24,16 @@ import "../styles/general.css";
     margin-right: 5px;
   }
 
+
+  a{
+    text-decoration: none;
+    display: none;
+  
+  }
+  .show{
+    display: block;
+  }
+
   p {
     font-size: var(--font-size-p-mobile);
     color: var(---red);
@@ -32,7 +43,7 @@ import "../styles/general.css";
     border: 2px solid var(---red);
     display: flex;
     justify-content: center;
-    gap: 60px;
+    gap: 25px;
     padding-top: 10px;
     padding-bottom: 10px;
   }
@@ -49,7 +60,7 @@ import "../styles/general.css";
       border: 2px solid var(---red);
       display: flex;
       justify-content: center;
-      gap: 100px;
+      gap: 80px;
       padding-top: 10px;
       padding-bottom: 10px;
     }

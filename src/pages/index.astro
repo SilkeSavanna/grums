@@ -8,21 +8,9 @@ import Card from "../components/Card.astro";
 import Eventliste from "../components/Eventliste.astro";
 import Karruselforside from "../components/Karruselforside.astro";
 
-const data = await fetch("https://fkvbxsksimndhsbkchww.supabase.co/rest/v1/events", {
-  method: "GET",
-  headers: {
-    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZrdmJ4c2tzaW1uZGhzYmtjaHd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU4NjAzNjIsImV4cCI6MjAzMTQzNjM2Mn0.I7TEX9S8OxEgBrIqbrRGY80VTS1Du_GIGu_tTfMhudk",
-  },
-}).then((res) => res.json());
-
-//https://fkvbxsksimndhsbkchww.supabase.co/rest/v1/events
-//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZrdmJ4c2tzaW1uZGhzYmtjaHd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU4NjAzNjIsImV4cCI6MjAzMTQzNjM2Mn0.I7TEX9S8OxEgBrIqbrRGY80VTS1Du_GIGu_tTfMhudk
-//
-
-console.log(data);
 ---
 
-<html lang="en">
+<html lang="da">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -62,25 +50,21 @@ console.log(data);
 
       <div class="forside_p"><p>Vi er passioneret for det egalitære og afslappede og arbejder målrettet på at opbygge et fællesskab præget af tryghed og ligeværdighed.</p></div>
 
-      <!-- <div class=" dropdown">
-        <label class="button" for="">Måned</label>
+     <div class="dropdown">
+        <label class="button" for="" onclick="toggleDropdown()">Måned</label>
+        
         <div class="dropdown_content">
-            <a href="index.html?season=Januar">Januar</a>
-            <a href="index.html?season=Februar">Februar</a>
-            <a href="index.html?season=Marts">Marts</a>
-            <a href="index.html?season=April">April</a>
-            <a href="index.html?season=Maj">Maj</a>
-            <a href="index.html?season=Juni">Juni</a>
-            <a href="index.html?season=Juli">Juli</a>
+            <button data-month="Juni" >Juni</button>
+            <button data-month="Juli" >Juli</button>
+            <button data-month="August" >August</button>
+            <button data-month="September" >September</button>
+            <button data-month="Oktober" >Oktober</button>
+            <button data-month="November" >November</button>
+            <button data-month="December" >December</button>
         </div>
-    </div> -->
+    </div>  
 
       <Karruselforside />
-
-      <div>
-        <a href=""></a>
-        <p></p>
-      </div>
 
       <div class="overskrifter">
         <h3>Vin & Øl</h3>
@@ -136,6 +120,7 @@ console.log(data);
     padding-left: 80px;
     padding-right: 80px;
     padding-top: 100px;
+    padding-bottom: 100px;
     text-align: center;
   }
 
@@ -176,11 +161,12 @@ console.log(data);
     font-size: var(--font-size-h3-mobile);
   }
 
-  .dropdown {
-    position: relative;
-    left: 20%;
-    top: 80px;
-  }
+  .dropdown{
+      position: relative;
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 65px;
+    }
 
   .dropdown_content {
     display: none;
@@ -188,20 +174,21 @@ console.log(data);
     background-color: white;
     min-width: 40px;
     font-size: 12px;
-
     z-index: 1;
   }
 
-  .dropdown_content a {
+  .dropdown_content button{
     color: black;
-    padding: 12px 16px;
     text-decoration: none;
-    display: block;
-    font-size: 12px;
+    font-size: var(--font-size-p-mobile);
+    border: none;
+    display: flex;
+    padding: 2px 2px;
   }
 
-  .dropdown_content a:hover {
-    background-color: #f1f1f1;
+
+  .dropdown_content button:hover {
+    background-color: #cdc7c7;
   }
 
   .dropdown:hover .dropdown_content {
@@ -211,7 +198,14 @@ console.log(data);
     width: 100px;
   }
 
-  .dropdown_flex {
+  .button::after {
+            content: '\25BC'; /* Unicode for downwards triangle */
+            margin-left: 30px;
+            font-size: 11px;
+          
+        }
+
+  /* .dropdown_flex {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -223,7 +217,7 @@ console.log(data);
   }
   .link {
     text-decoration: none;
-  }
+  } */
 
   .button {
     display: inline-block;
@@ -252,7 +246,31 @@ console.log(data);
     #hero {
       height: 750px;
     }
+ 
+.button{
+  padding: 2px 10px;
+  width: 120px;
+}
+    .dropdown{
+      position: relative;
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 23.5%;
+  
+    }
 
+    .dropdown:hover .dropdown_content {
+      width: 120px;
+    }
+
+    .button::after {
+            content: '\25BC'; /* Unicode for downwards triangle */
+            margin-left: 40px;
+            font-size: 11px;
+          
+        }
+
+       
     .h1_hero {
       font-size: 40px;
       font-weight: 500;
@@ -315,9 +333,50 @@ console.log(data);
       transform: rotate(-12deg);
     }
 
-    .events {
-      /* display: flex;
-  flex-direction: row; */
-    }
+    
   }
 </style>
+
+
+<script>
+
+
+// document.addEventListener("DOMContentLoaded", () => {
+  // const btns = document.querySelectorAll("button");
+  const cards = document.querySelectorAll("a");
+
+ 
+  cards.forEach((card) => {
+    card.classList.add("show");
+  });
+
+
+const dropdown = document.querySelector('.dropdown');
+
+// Hvis dropdown-menuen blev fundet
+if (dropdown) {
+  // Vælg knapperne inde i dropdown-menuen
+  const dropdownButtons = dropdown.querySelectorAll('button[data-month]');
+
+  // Tilføj en klikhåndterer til hver knap inde i dropdown-menuen
+  dropdownButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const target = e.currentTarget.dataset.month;
+      cards.forEach((card) => {
+        if (card.dataset.filter === target) {
+          card.classList.add("show");
+        } else {
+          card.classList.remove("show");
+        }
+      });
+    });
+  });
+}
+
+
+
+
+
+
+
+</script>

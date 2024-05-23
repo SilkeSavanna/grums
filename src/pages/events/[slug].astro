@@ -1,26 +1,126 @@
 ---
-// export async function getStaticPaths() {
-// const data = await fetch("https://couztkypuvadixszzvmk.supabase.co/rest/v1/events", {
-//   method: "GET",
-//   headers: {
-//     apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZrdmJ4c2tzaW1uZGhzYmtjaHd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU4NjAzNjIsImV4cCI6MjAzMTQzNjM2Mn0.I7TEX9S8OxEgBrIqbrRGY80VTS1Du_GIGu_tTfMhudk",
+import "../../styles/general.css";
+import Mainlayout from "../../layouts/mainlayout.astro";
+import Button from "../../components/Button.astro"
 
-//   },
-// })
+export async function getStaticPaths() {
+const data = await fetch("https://fkvbxsksimndhsbkchww.supabase.co/rest/v1/events", {
+  method: "GET",
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZrdmJ4c2tzaW1uZGhzYmtjaHd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU4NjAzNjIsImV4cCI6MjAzMTQzNjM2Mn0.I7TEX9S8OxEgBrIqbrRGY80VTS1Du_GIGu_tTfMhudk",
 
-// .then((response)=> response.json());
+  },
+})
 
-// return data.map((events)=> {
-//     return {
-//         params: {slug: events.slug},
-//         props: {data: events},
-//     };
-// });
+.then((response)=> response.json());
 
-// };
+return data.map((event)=> {
+    return {
+        params: {slug: event.slug},
+        props: { myData: event},
+    };
+});
 
-// const {data} = Astro.props;
-// console.log(data);
+};
 
+const { myData } = Astro.props;
+console.log(myData)
 
 ---
+
+<Mainlayout>
+    
+<article class="grid_singleview">
+<div>
+    <img src={"/public/img/" + `${myData.image}`} alt="" />
+</div>
+<div class="text">
+<h1>{myData.name}</h1>
+<div class="flex_01">
+    <p class="small"><i>{myData.Time}</i></p>
+    <p class="small"><i>{myData.location}</i></p>
+    <p class="small"><i>{myData.price} kr</i></p>
+</div>
+<p>{myData.description}</p>
+
+<p>Dato: {myData.dato}</p>
+
+<h1>PRAKTISK INFO</h1>
+<p>Pris: {myData.price} kr</p>
+<p>Lokation: {myData.location} </p>
+
+<p class="last">{myData.information}</p>
+
+<Button></Button>
+
+</div>
+</article>
+</Mainlayout>
+
+
+<style>
+
+
+img{
+    display: block;
+    margin: auto;
+    width: 80%;
+    padding-top: 40px;
+}
+
+
+p{
+    text-align: justify;
+    margin-bottom: 10px;
+   
+
+}
+
+
+h1{
+    font-family: roboto;
+    font-weight: 300;
+    margin-top: 60px;
+
+}
+
+.flex_01{
+    display: flex;
+    justify-content: start;
+    margin-bottom: 10px;
+
+}
+
+.small{
+    margin: 0 0;
+}
+
+.small::after {
+    content: "/";
+    margin-left: 5px; 
+    margin-right: 5px; 
+}
+
+.text{
+    margin-top: 60px;
+    margin-bottom: 60px;
+    margin: 1rem 3rem;
+}
+
+
+
+.last{
+    margin-bottom: 30px;
+}
+
+@media (min-width: 800px){
+  .grid_singleview{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+</style>
+
+
+

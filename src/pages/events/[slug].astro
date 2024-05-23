@@ -2,6 +2,7 @@
 import "../../styles/general.css";
 import Mainlayout from "../../layouts/mainlayout.astro";
 import Button from "../../components/Button.astro"
+import Header from "../../components/Header.astro";
 
 export async function getStaticPaths() {
 const data = await fetch("https://fkvbxsksimndhsbkchww.supabase.co/rest/v1/events", {
@@ -29,6 +30,8 @@ console.log(myData)
 ---
 
 <Mainlayout>
+
+    <Header></Header>
     
 <article class="grid_singleview">
 <div>
@@ -79,7 +82,7 @@ p{
 
 h1{
     font-family: roboto;
-    font-weight: 300;
+    font-weight: 400;
     margin-top: 60px;
 
 }
@@ -117,7 +120,14 @@ h1{
   .grid_singleview{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-bottom: 60px;
   }
+
+  h1{
+    margin-top: 20px;
+    margin-bottom: 40px;
+
+}
 
 }
 </style>

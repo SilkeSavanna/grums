@@ -2,29 +2,13 @@
 import Button from "../components/Button.astro";
 import Eventknap from "../components/Eventknap.astro";
 import Burgermenu from "../components/Burgermenu.astro";
-import Footer from "../components/Footer.astro";
-import Evenliste from "../components/Eventliste.astro";
-import Card from "../components/Card.astro";
-import Eventliste from "../components/Eventliste.astro";
 import Karruselforside from "../components/Karruselforside.astro";
+import Mainlayout from "../layouts/mainlayout.astro";
 
 ---
 
-<html lang="da">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/ff2cb96f80.js" crossorigin="anonymous"></script>
-  </head>
-
-  <body>
+  <Mainlayout>
     <section id="hero">
       <header>
         <Burgermenu />
@@ -73,10 +57,8 @@ import Karruselforside from "../components/Karruselforside.astro";
         <h3>Fælleskab</h3>
         <h3>Mødested</h3>
       </div>
-    </main>
-    <Footer />
-  </body>
-</html>
+      </main>
+    </Mainlayout>
 
 <style>
   #hero {

@@ -1,0 +1,38 @@
+---
+import Burgermenu from "../components/Burgermenu.astro";
+import "../styles/general.css";
+---
+
+<header>
+  <a class="logo" href="/index">
+    <img src="public/img/logo_grums.webp" alt="Grums logo" />
+  </a>
+  <Burgermenu />
+</header>
+
+<style>
+  header {
+    z-index: 10;
+    position: sticky;
+    top: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--beige);
+  }
+
+  header .logo {
+    display: block;
+    margin: 20px 0 10px 20px;
+  }
+
+  header img {
+    width: 50px;
+  }
+
+  @media (min-width: 800px) {
+    header img {
+      width: 70px;
+    }
+  }
+</style>

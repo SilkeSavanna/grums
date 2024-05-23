@@ -1,9 +1,10 @@
 ---
 import Footer from "../components/Footer.astro";
 import "../styles/general.css";
-import Burgermenu from "../components/Burgermenu.astro";
 import Omsideanimation from "../components/Omsideanimation.astro";
 import Karrusel from "../components/Karrusel.astro";
+import Header from "../components/Header.astro";
+import Faelgmed from "../components/Faelgmed.astro";
 ---
 
 <html lang="da">
@@ -20,245 +21,334 @@ import Karrusel from "../components/Karrusel.astro";
   </head>
 
   <body>
-    <header>
-      <div class="logo_header_omside">
-        <a href="/index">
-          <img src="public/img/logo_grums.webp" alt="Grums logo" />
-        </a>
-        <Burgermenu />
-      </div>
-      <main>
+    <Header />
+    <main>
+      <div class="grid_omside">
+        <section class="animation_img">
+          <img class="dame" src="public/img/springdame.png" alt="dame" />
+          <img class="kaffe" src="public/img/kaffekop.png" alt="kop" />
+          <img class="vippe" src="public/img/vippe.png" alt="vippe" />
+          <img class="storedraabe" src="public/img/stordraabe.png" alt="dråbe" />
+          <img class="storedraabe2" src="public/img/stordraabe2.png" alt="dråbe" />
+          <img class="lilledraabe" src="public/img/lilledraabe.png" alt="lille dråbe" />
+          <img class="lilledraabe2" src="public/img/lilledraabe2.png" alt="lille dråbe" />
+          <img class="lilledraabe3" src="public/img/lilledraabe2.png" alt="lille dråbe" />
+        </section>
         <div class="omgrums_txt">
+          <h2>Dyk ned i Grums</h2>
           <p>
-            Velkommen til Grums, hvor vi prioriterer en afslappet og uformel atmosfære, så vores gæster altid føler sig hjemme. Vi stræber efter at skabe et rum, der er frit for elitisme og i stedet omfavner en inkluderende tilgang, hvor alle, uanset baggrund eller status, er velkomne. Vores kalender er fyldt med spændende arrangementer såsom quizzer, vinsmagninger og kunstneriske ferniseringer, der giver plads til nye talenter. Du kan finde vores aktuelle <a href="/index">events her.</a> Grums bryder med den prætentiøse og formelle stil og sætter i stedet pris på ægthed og ærlighed. Vores priser er altid venlige for ethvert budget, så alle kan deltage uden at bekymre sig om økonomi. Vi stræber efter at skabe et fællesskab, der modvirker elitisme og i stedet omfavner mangfoldighed og inklusion.
-            Hos os handler det om at bevare det autentiske og afslappede, så alle føler sig velkomne og værdsatte.
+            Velkommen til Grums, hvor vi prioriterer en afslappet og uformel atmosfære, så vores gæster altid føler sig hjemme. Vores mål er at skabe et rum uden elitisme, hvor alle, uanset baggrund eller status, kan føle sig inkluderet. . Vores kalender er fyldt med spændende arrangementer såsom quizzer, vinsmagninger og kunstneriske ferniseringer, der giver plads til nye talenter. Du kan finde vores aktuelle <a href="/index">events her.</a>
           </p>
+          <br />
+          <br />
+          <h2>Et Rum for Alle</h2>
+          <p>Grums bryder med prætentiøse og formelle normer, værdsætter ægthed og ærlighed, og tilbyder altid priser, der er tilgængelige for ethvert budget. Vi arbejder for at skabe et fællesskab, der fremmer mangfoldighed og inklusion. Hos os handler det om at bevare en autentisk og afslappet stemning, så alle føler sig velkomne og værdsatte.</p>
         </div>
-        <div id="omgrums">
-          <div id="vippe_container">
-            <div id="vippe_sprite"></div>
-          </div>
-
-          <div id="springdame_container">
-            <div id="springdame_sprite"></div>
-          </div>
-
-          <div id="kaffekop_container">
-            <div id="kaffekop_sprite"></div>
-          </div>
-
-          <div id="stordraabe_container">
-            <div id="stordraabe_sprite"></div>
-          </div>
-
-          <div id="mellemdraabe_container">
-            <div id="mellemdraabe_sprite"></div>
-          </div>
-        </div>
-
-        <div id="lilledraabe_container">
-          <div id="lilledraabe_sprite"></div>
-        </div>
-      </main>
-
-      <div id="lilledraabe2_container">
-        <div id="lilledraabe2_sprite"></div>
       </div>
 
       <Karrusel />
-      <div class="faelg_med_tekst">
-        <a href="https://www.instagram.com/grumscph/?hl=da">Følg med på Instagram</a>
-      </div>
-    </header>
-    <Footer />
-
-    <style>
-      .logo_header_omside {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-      }
-
-      .logo_header_omside img {
-        width: 50px;
-      }
-      .faelg_med_tekst {
-        display: flex;
-        text-align: center;
-        justify-content: center;
-        margin-bottom: 70px;
-      }
-
-      .faelg_med_tekst a {
-        color: var(---red);
-        font-size: var(--font-size-links-mobile);
-      }
-    </style>
-
-    <!-- <style>
-    .omgrums_txt {
-      color: var(--red);
-      font-size: var(--font-size-p-mobile);
-      position: absolute; /* Gør positioneringen absolut */
-      top: 80%; /* Juster denne værdi afhængigt af hvor langt nede teksten skal være */
-      left: 10%; /* Juster denne værdi for at placere teksten vandret */
-      width: 80%; /* Juster bredden hvis nødvendigt */
-    }
-
-    .omgrums_txt a {
-      color: var(--red);
-      font-weight: bolder;
-      text-decoration: underline;
-    }
-    .omgrums {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    #vippe_container {
-      position: absolute;
-      width: 20%;
-      aspect-ratio: 284/182;
-      top: 25%;
-      left: 0%;
-      pointer-events: none;
-    }
-
-    #vippe_sprite {
-      width: 100%;
-      height: 100%;
-      background-image: url(img/vippe.png);
-      background-size: cover;
-      pointer-events: none;
-    }
-
-    #springdame_container {
-      position: absolute;
-      width: 30%;
-      aspect-ratio: 243/407;
-      top: 25%;
-      left: 40%;
-      pointer-events: none;
-    }
-
-    #springdame_sprite {
-      width: 100%;
-      height: 100%;
-      background-image: url(img/springdame.png);
-      background-size: cover;
-      pointer-events: none;
-      animation: fall 10s infinite linear; /* 5 sekunders animationstid */
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(-20%); /* Start lidt over viewport */
-      }
-      100% {
-        transform: translateY(10vh); /* Slut lidt under viewport */
-      }
-    }
-
-    #kaffekop_container {
-      position: absolute;
-      width: 45%;
-      aspect-ratio: 457/343;
-      top: 60%;
-      left: 30%;
-      pointer-events: none;
-    }
-
-    #kaffekop_sprite {
-      width: 100%;
-      height: 100%;
-      background-image: url(img/kaffekop.png);
-      background-size: cover;
-      pointer-events: none;
-    }
-
-    #stordraabe_container {
-      position: absolute;
-      width: 15%;
-      aspect-ratio: 138/165;
-      top: 55%;
-      left: 61%;
-      pointer-events: none;
-    }
-
-    #stordraabe_sprite {
-      width: 100%;
-      height: 100%;
-      background-image: url(img/stordraabe.png);
-      background-size: cover;
-      pointer-events: none;
-      animation: flyUp 10s infinite linear; /* 10 sekunders animationstid */
-    }
-
-    @keyframes flyUp {
-      0% {
-        transform: translateY(0); /* Start ved nuværende position */
-      }
-      100% {
-        transform: translateY(-3vh); /* Slut ved toppen af viewport */
-      }
-    }
-
-    #mellemdraabe_container {
-      position: absolute;
-      width: 4%;
-      aspect-ratio: 35/70;
-      top: 53%;
-      left: 42%;
-      pointer-events: none;
-    }
-
-    #mellemdraabe_sprite {
-      width: 100%;
-      height: 100%;
-      background-image: url(img/mellemdraabe.png);
-      background-size: cover;
-      pointer-events: none;
-      animation: flyUp 10s infinite linear; /* 10 sekunders animationstid */
-    }
-
-    #lilledraabe_container {
-      position: absolute;
-      width: 7%;
-      aspect-ratio: 22/37;
-      top: 57%;
-      left: 36%;
-      pointer-events: none;
-    }
-
-    #lilledraabe_sprite {
-      width: 100%;
-      height: 100%;
-      background-image: url(img/lilledraabe.png);
-      background-size: cover;
-      pointer-events: none;
-      animation: flyUp 10s infinite linear; /* 10 sekunders animationstid */
-    }
-
-    #lilledraabe2_container {
-      position: absolute;
-      width: 5%;
-      aspect-ratio: 35/70;
-      top: 55%;
-      left: 55%;
-      pointer-events: none;
-    }
-
-    #lilledraabe2_sprite {
-      width: 100%;
-      height: 100%;
-      background-image: url(img/lilledraabe2.png);
-      background-size: cover;
-      pointer-events: none;
-      animation: flyUp 10s infinite linear; /* 10 sekunders animationstid */
-    }
-  </style> -->
+      <Faelgmed />
+      <Footer />
+    </main>
   </body>
 </html>
+
+<style>
+  a {
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+  .omgrums_txt {
+    padding: 35px;
+    font-size: var(--font-size-p-mobile);
+    line-height: 1.5;
+    margin: 10px 20px;
+  }
+  .animation_img {
+    width: 100vw;
+    height: 58vh;
+  }
+  .dame {
+    width: 28%;
+    position: relative;
+    left: 40%;
+    padding-top: 10%;
+    animation: fall 6s infinite linear; /* 5 sekunders animationstid */
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(-20%); /* Start lidt over viewport */
+    }
+    100% {
+      transform: translateY(5vh); /* Slut lidt under viewport */
+    }
+  }
+
+  .kaffe {
+    width: 43%;
+    position: absolute;
+    left: 33%;
+    top: 50%;
+  }
+
+  .vippe {
+    width: 37%;
+    position: absolute;
+    top: 18%;
+  }
+
+  .storedraabe {
+    width: 12%;
+    position: absolute;
+    top: 47%;
+    left: 69%;
+    animation: flyUp 2s infinite alternate; /* 10 sekunders animationstid */
+  }
+  @keyframes flyUp {
+    0% {
+      transform: translateY(0); /* Start ved nuværende position */
+    }
+    100% {
+      transform: translateY(-3vh); /* Slut ved toppen af viewport */
+    }
+  }
+
+  .storedraabe2 {
+    width: 12%;
+    position: absolute;
+    top: 47%;
+    left: 32.5%;
+    animation: flyUp 3s infinite alternate; /* 10 sekunders animationstid */
+  }
+
+  .lilledraabe {
+    width: 5%;
+    position: absolute;
+    top: 44%;
+    left: 44%;
+    animation: flyUp 3s infinite alternate; /* 10 sekunders animationstid */
+  }
+
+  .lilledraabe2 {
+    width: 5%;
+    position: absolute;
+    top: 45%;
+    left: 65%;
+    animation: flyUp 4s infinite alternate; /* 10 sekunders animationstid */
+  }
+
+  .lilledraabe3 {
+    width: 3%;
+    position: absolute;
+    top: 49%;
+    left: 50%;
+    transform: scaleX(-1);
+    animation: flyUp 2s infinite alternate; /* 10 sekunders animationstid */
+  }
+
+  @media (min-width: 450px) {
+    .animation_img {
+      width: 100vw;
+      height: 60vh;
+    }
+    .dame {
+      width: 22%;
+      position: relative;
+      left: 38%;
+      padding-top: 10%;
+    }
+
+    .kaffe {
+      width: 30%;
+      position: absolute;
+      left: 36%;
+      top: 50%;
+    }
+
+    .vippe {
+      width: 28%;
+      position: absolute;
+      top: 18%;
+    }
+
+    .storedraabe {
+      width: 6%;
+      position: absolute;
+      top: 48%;
+      left: 60%;
+    }
+
+    .storedraabe2 {
+      width: 6%;
+      position: absolute;
+      top: 48%;
+      left: 36.5%;
+    }
+
+    .lilledraabe {
+      width: 3%;
+      position: absolute;
+      top: 45%;
+      left: 43%;
+    }
+
+    .lilledraabe2 {
+      width: 3%;
+      position: absolute;
+      top: 46%;
+      left: 58%;
+    }
+
+    .lilledraabe3 {
+      width: 2%;
+      position: absolute;
+      top: 49%;
+      left: 47%;
+      transform: scaleX(-1);
+    }
+  }
+
+  @media (min-width: 700px) {
+    .grid_omside {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 20px;
+    }
+
+    .omgrums_txt {
+      padding: 40px;
+      font-size: var(--font-size-p-desktop);
+      line-height: 1.5;
+      margin: 115px 40px;
+    }
+    .animation_img {
+      width: 50vw;
+      height: 90vh;
+    }
+    .dame {
+      width: 28%;
+      position: relative;
+      left: 38%;
+      padding-top: 10%;
+    }
+
+    .kaffe {
+      width: 20%;
+      position: absolute;
+      left: 19%;
+      top: 70%;
+    }
+
+    .vippe {
+      width: 15%;
+      position: absolute;
+      top: 18%;
+    }
+
+    .storedraabe {
+      width: 6%;
+      position: absolute;
+      top: 64%;
+      left: 35.5%;
+    }
+
+    .storedraabe2 {
+      width: 6%;
+      position: absolute;
+      top: 64%;
+      left: 17.5%;
+    }
+
+    .lilledraabe {
+      width: 2%;
+      position: absolute;
+      top: 61%;
+      left: 24%;
+    }
+
+    .lilledraabe2 {
+      width: 2%;
+      position: absolute;
+      top: 65%;
+      left: 33%;
+    }
+
+    .lilledraabe3 {
+      width: 1.5%;
+      position: absolute;
+      top: 68%;
+      left: 25%;
+      transform: scaleX(-1);
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .grid_omside {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 20px;
+    }
+    .animation_img {
+      width: 50vw;
+      height: 90vh;
+    }
+    .dame {
+      width: 20%;
+      position: relative;
+      left: 38%;
+      padding-top: 10%;
+    }
+
+    .kaffe {
+      width: 18%;
+      position: absolute;
+      left: 19%;
+      top: 70%;
+    }
+
+    .vippe {
+      width: 15%;
+      position: absolute;
+      top: 18%;
+    }
+
+    .storedraabe {
+      width: 4%;
+      position: absolute;
+      top: 66%;
+      left: 35%;
+    }
+
+    .storedraabe2 {
+      width: 4%;
+      position: absolute;
+      top: 67%;
+      left: 18.5%;
+    }
+
+    .lilledraabe {
+      width: 1.5%;
+      position: absolute;
+      top: 61%;
+      left: 21.5%;
+    }
+
+    .lilledraabe2 {
+      width: 1.5%;
+      position: absolute;
+      top: 67%;
+      left: 33%;
+    }
+
+    .lilledraabe3 {
+      width: 1%;
+      position: absolute;
+      top: 68%;
+      left: 24%;
+      transform: scaleX(-1);
+    }
+  }
+</style>

@@ -2,30 +2,24 @@
 import "../styles/general.css";
 ---
 
-<nav class="stornav">
-  <a href="/index">Forside</a>
-  <a href="/omgrums">Om Grums</a>
-</nav>
-
 <nav class="nav-bar">
-  <ul class="nav-menu">
-    <li class="nav-item">
-      <a class="nav-link" href="/index">Forside</a>
+  <ul>
+    <li>
+      <a href="/index">Forside</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/omgrums">Om Grums</a>
+    <li>
+      <a href="/omgrums">Om Grums</a>
     </li>
   </ul>
-</nav>
   <div class="hamburger">
     <span class="bar"></span>
     <span class="bar"></span>
     <span class="bar"></span>
   </div>
-
+</nav>
 
 <style>
-  .nav-link {
+  a {
     color: var(--beige);
     font-size: var(--font-size-h2-mobile);
     margin-top: 5%;
@@ -37,42 +31,34 @@ import "../styles/general.css";
     max-width: 200px;
     min-width: 250px;
     font-family: Roboto;
-
   }
-
-  .nav-item {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-  }
-
- 
-
-  .nav-link:hover {
+  a:hover {
     color: var(---red);
     background-color: var(--beige);
   }
-  .stornav {
-    display: none;
+
+  li {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
-  .nav-menu {
+  ul {
     display: none;
-    position: absolute;
     right: -1000px;
     background-color: var(---red);
-    margin-top: -39px;
     flex-direction: column;
     width: 100vw;
-    height: 100vh;
-    text-align: center;
+    height: 105vh;
     transition: 0.5s;
-    padding-top: 250px;
+    padding-top: 200px;
   }
 
-  .nav-menu.active {
+  ul.active {
     right: 0;
-    z-index: 1000;
+    z-index: 100;
     display: block;
   }
 
@@ -82,14 +68,13 @@ import "../styles/general.css";
     position: absolute;
     right: 30px;
     top: 30px;
-    z-index: 10000;
-    transition: right .4s ease-in;
+    z-index: 1000;
+    transition: right 0.4s ease-in;
   }
-
 
   .hamburger.active {
     right: 40px;
-    transition: right .4s ease-in;
+    transition: right 0.4s ease-in;
   }
 
   .bar {
@@ -115,14 +100,98 @@ import "../styles/general.css";
   .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
     background-color: var(--beige);
-ß  }
+  }
 
   @media (min-width: 800px) {
-    .hamburger {
 
+    a {
+    color: var(--beige);
+    font-size: var(--font-size-h2-mobile);
+    margin-top: 5%;
+    text-decoration: none;
+    display: inline-block;
+    width: auto;
+    border: 1px solid var(--beige);
+    padding: 15px 60px;
+    max-width: 200px;
+    min-width: 250px;
+    font-family: Roboto;
+  }
+  a:hover {
+    color: var(---red);
+    background-color: var(--beige);
+  }
+
+  li {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  ul {
+    display: none;
+    right: -1000px;
+    background-color: var(---red);
+    flex-direction: column;
+    width: 100vw;
+    height: 105vh;
+    transition: 0.5s;
+    padding-top: 200px;
+
+  }
+
+  ul.active {
+    right: 0;
+    z-index: 100;
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    z-index: 1000;
+    transition: right .4s ease-in;
+  }
+
+
+  .hamburger.active {
+    right: 40px;
+    transition: right .4s ease-in;
+  }
+
+  .bar {
+    display: block;
+    width: 37px;
+    height: 4px;
+    margin-bottom: 5px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(---red);
+    z-index: 1000;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background-color: var(--beige);
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: var(--beige);
+ß  }
+    .hamburger {
       /* margin-left: 90%; */
     }
-    .nav-menu {
+    ul {
       display: none;
       flex-direction: column;
       text-align: center;
@@ -135,13 +204,13 @@ import "../styles/general.css";
 </style>
 
 <script>
-  const burgerMenu = document.querySelector(".nav-menu"); // Erstat ".nav-menu" med din burgermenu's selector
+  const burgerMenu = document.querySelector("ul"); // Erstat ".nav-menu" med din burgermenu's selector
   const burgerButton = document.querySelector(".hamburger"); // Erstat ".hamburger" med din burgerknap's selector
 
-  burgerButton.addEventListener('click', toggleSideMenu)
+  burgerButton.addEventListener("click", toggleSideMenu);
 
   function toggleSideMenu() {
-    burgerMenu.classList.toggle('active')
-    burgerButton.classList.toggle('active')
+    burgerMenu.classList.toggle("active");
+    burgerButton.classList.toggle("active");
   }
 </script>

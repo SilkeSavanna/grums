@@ -4,6 +4,7 @@ import Eventknap from "../components/Eventknap.astro";
 import Burgermenu from "../components/Burgermenu.astro";
 import Karruselforside from "../components/Karruselforside.astro";
 import Mainlayout from "../layouts/mainlayout.astro";
+import Faelgmed from "../components/Faelgmed.astro";
 
 ---
 
@@ -50,12 +51,14 @@ import Mainlayout from "../layouts/mainlayout.astro";
 
       <Karruselforside/>
 
+<Faelgmed></Faelgmed>
+
       <div class="overskrifter">
-        <h3>Vin & Øl</h3>
-        <h3>Kunst</h3>
-        <h3>Kaffe & Bagværk</h3>
-        <h3>Fælleskab</h3>
-        <h3>Mødested</h3>
+        <h3 class="overskrifter_tekst">Vin & Øl</h3>
+        <h3 class="overskrifter_tekst">Kaffe & Bagværk</h3>
+        <h3 class="overskrifter_tekst">Kunst</h3>
+        <h3 class="overskrifter_tekst">Fælleskab</h3>
+        <h3 class="overskrifter_tekst">Mødested</h3>
       </div>
       </main>
     </Mainlayout>
@@ -278,6 +281,10 @@ import Mainlayout from "../layouts/mainlayout.astro";
       padding-bottom: 50px;
     }
 
+    .overskrifter_tekst{
+      font-size: 25px;
+      padding-bottom: 20px;
+    }
     .veardiord1 {
       width: 20%;
       position: relative;

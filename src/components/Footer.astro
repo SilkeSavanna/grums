@@ -67,11 +67,10 @@ p{
 }
 
 .row{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 50px;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    gap: 60px;
 }
 
 .col{
@@ -132,6 +131,9 @@ footer{
     margin-bottom: 100px;
 }
 
+
+
+
 @media (min-width: 800px){
     h2{
     font-size: var(--font-size-h2-desktop);
@@ -144,12 +146,9 @@ p{
 }
 
 .row{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 50px;
-    padding-left: 25rem;
-    padding-right: 25rem;
-}
+    display: flex;
+    justify-content: center;
+  gap: 80px;
 
 form{
     display: flex;

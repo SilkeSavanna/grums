@@ -158,6 +158,23 @@ const data = await fetch("https://fkvbxsksimndhsbkchww.supabase.co/rest/v1/event
     }
 
     .slider_event .pil#prev_slide {
+      left: 700px;
+      top: -5%;
+    }
+
+    .slider_event .pil#next_slide {
+      right: 20px;
+      top: -5%;
+    }
+
+    .events {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .slider_event .pil#prev_slide {
       left: -120px;
       top: 50%;
     }
@@ -165,11 +182,6 @@ const data = await fetch("https://fkvbxsksimndhsbkchww.supabase.co/rest/v1/event
     .slider_event .pil#next_slide {
       right: -120px;
       top: 50%;
-    }
-
-    .events {
-      display: flex;
-      flex-direction: row;
     }
   }
 </style>

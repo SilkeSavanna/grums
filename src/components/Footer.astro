@@ -23,14 +23,25 @@ import "../styles/general.css";
     <div class="form">
         <h2>Tilmeld dig fælleskabet</h2>
        
-     <form action="tak.html" netlify>
+     <form onsubmit="openPopup(event)" netlify>
         <div class="form_felt">
-            <input type="text" placeholder="Din email her">
-            <button class="send_btn" type="submit"><a href="tak.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#e30613" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg></a></button>
+            <input type="email" placeholder="Din email her">
+            <button class="send_btn" onclick="openPopup()" type="submit"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#e30613" d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg></button>
             <!-- <i class="fa-solid fa-circle-arrow-right"></i> -->
+            <!-- <div class="popup">
+                <h2>Tak</h2>
+                <p>Dine detaljer er blevet gemt</p>
+                <button class="ok_button" type="button">OK</button>
+            </div> -->
         </div>
       
         </form>
+
+        <div class="popup" id="popup">
+            <h2>Tak</h2>
+            <p>Dine detaljer er blevet gemt</p>
+            <button class="ok_button" onclick="closePopup()" type="button">OK</button>
+        </div>
         <div class="social">
             <a class="icons" href="https://www.instagram.com/grumscph/?hl=da">
                 <img class="icons_2" src="../../public/img/instagram2.svg" alt="instagram_icon">
@@ -131,15 +142,58 @@ footer{
     margin-bottom: 100px;
 }
 
+.popup{
+    width: 310px;
+    background: var(--beige);
+    border-radius: 6px;
+    position: absolute;
+  margin-top: 20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 0 30px 0;
+    color: var(---red);
+    visibility: hidden;
+   
+}
 
+.popup h2{
+    margin: 20px 0 5px;
+}
 
+.ok_button{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 0;
+    border-color: var(---red);
+outline: var(---red);
+border-radius: 4px;
+cursor: pointer;
+color: var(---red);
+background-color: white;
+/* box-shadow: 0 5px 5px rgba(223, 93, 93, 0.852); */
+}
+
+.openPopup{
+    visibility: visible;
+}
 
 @media (min-width: 800px){
+
+    .popup{
+        margin-top: 30px;
+        
+    }
     h2{
     font-size: var(--font-size-h2-desktop);
     margin-bottom: 30px;
 }
 
+.ok_button{
+    color: var(---red);
+    background-color: none;
+    
+}
 p{
     font-size: var(--font-size-p-desktop);
     margin-top: 15px;
@@ -149,7 +203,7 @@ p{
     display: flex;
     justify-content: center;
   gap: 80px;
-
+}
 form{
     display: flex;
     justify-content: center;
@@ -213,3 +267,30 @@ a{
 }
 
 </style>
+
+<script>
+// Event listener for form submission
+document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Forhindrer formularen i at blive indsendt og siden i at genindlæse
+    openPopup(event);
+});
+
+// Funktion for at åbne popup
+function openPopup(event) {
+    event.preventDefault(); // Tilføjet for at forhindre standardformularindsendelse
+    let popup = document.getElementById("popup");
+    popup.classList.add("openPopup");
+}
+
+// Ingen ændring her
+function closePopup() {
+    let popup = document.getElementById("popup");
+    popup.classList.remove("openPopup");
+}
+
+// Tilføj event listener for "OK"-knappen
+document.querySelector(".ok_button").addEventListener("click", function(event) {
+    closePopup();
+});
+
+</script>

@@ -1,67 +1,64 @@
 ---
-import Button from "../components/Button.astro";
-import Eventknap from "../components/Eventknap.astro";
 import Burgermenu from "../components/Burgermenu.astro";
 import Karruselforside from "../components/Karruselforside.astro";
 import Mainlayout from "../layouts/mainlayout.astro";
 import Faelgmed from "../components/Faelgmed.astro";
-
+import Buttons from "../components/Buttons.astro";
 ---
 
+<Mainlayout>
+  <section id="hero">
+    <header>
+      <Burgermenu />
+    </header>
 
-  <Mainlayout>
-    <section id="hero">
-      <header>
-        <Burgermenu />
-      </header>
+    <div class="hero_box">
+      <img class="logo" src="../../public/img/logo_grums.webp" alt="" />
 
-      <div class="hero_box">
-        <img class="logo" src="../../public/img/logo_grums.webp" alt="" />
-
-        <div>
-          <h1 class="h1_hero">Et fælleskab for Københavns lokale</h1>
-        </div>
+      <div>
+        <h1 class="h1_hero">Et fælleskab for Københavns lokale</h1>
       </div>
-      <div class="hero_box2">
-        <Eventknap />
+    </div>
+    <div class="hero_box2">
+      <Buttons variant="secondary" size="medium">Se events</Buttons>
+    </div>
+  </section>
+  <main>
+    <img class="veardiord1" src="../../public/img/tryghed.webp" alt="tryghed_keyword" />
+
+    <img class="veardiord2" src="../../public/img/passioneret.webp" alt="passioneret_keyword" />
+
+    <img class="veardiord3" src="../../public/img/fælleskab.webp" alt="fælleskab_keyword" />
+
+    <div class="forside_p"><p>Vi er passioneret for det egalitære og afslappede og arbejder målrettet på at opbygge et fællesskab præget af tryghed og ligeværdighed.</p></div>
+
+    <div id="events" class="dropdown">
+      <label class="button" for="">Måned</label>
+
+      <div class="dropdown_content">
+        <button data-month="Juni">Juni</button>
+        <button data-month="Juli">Juli</button>
+        <button data-month="August">August</button>
+        <button data-month="September">September</button>
+        <button data-month="Oktober">Oktober</button>
+        <button data-month="November">November</button>
+        <button data-month="December">December</button>
       </div>
-    </section>
-    <main>
-      <img class="veardiord1" src="../../public/img/tryghed.webp" alt="tryghed_keyword" />
+    </div>
 
-      <img class="veardiord2" src="../../public/img/passioneret.webp" alt="passioneret_keyword" />
+    <Karruselforside />
 
-      <img class="veardiord3" src="../../public/img/fælleskab.webp" alt="fælleskab_keyword" />
+    <Faelgmed />
 
-      <div class="forside_p"><p>Vi er passioneret for det egalitære og afslappede og arbejder målrettet på at opbygge et fællesskab præget af tryghed og ligeværdighed.</p></div>
-
-     <div id="events" class="dropdown">
-        <label class="button" for="">Måned</label>
-        
-        <div class="dropdown_content">
-            <button data-month="Juni" >Juni</button>
-            <button data-month="Juli" >Juli</button>
-            <button data-month="August" >August</button>
-            <button data-month="September" >September</button>
-            <button data-month="Oktober" >Oktober</button>
-            <button data-month="November" >November</button>
-            <button data-month="December" >December</button>
-        </div>
-    </div>  
-
-      <Karruselforside/>
-
-<Faelgmed></Faelgmed>
-
-      <div class="overskrifter">
-        <h3 class="overskrifter_tekst">Vin & Øl</h3>
-        <h3 class="overskrifter_tekst">Kaffe & Bagværk</h3>
-        <h3 class="overskrifter_tekst">Kunst</h3>
-        <h3 class="overskrifter_tekst">Fælleskab</h3>
-        <h3 class="overskrifter_tekst">Mødested</h3>
-      </div>
-      </main>
-    </Mainlayout>
+    <div class="overskrifter">
+      <h3 class="overskrifter_tekst">Vin & Øl</h3>
+      <h3 class="overskrifter_tekst">Kaffe & Bagværk</h3>
+      <h3 class="overskrifter_tekst">Kunst</h3>
+      <h3 class="overskrifter_tekst">Fælleskab</h3>
+      <h3 class="overskrifter_tekst">Mødested</h3>
+    </div>
+  </main>
+</Mainlayout>
 
 <style>
   #hero {
@@ -140,17 +137,16 @@ import Faelgmed from "../components/Faelgmed.astro";
     margin-bottom: 100px;
   }
 
-  .overskrifter_tekst{
+  .overskrifter_tekst {
     padding-bottom: 10px;
   }
 
-
-  .dropdown{
-      position: relative;
-      display: flex;
-      justify-content: center;
+  .dropdown {
+    position: relative;
+    display: flex;
+    justify-content: center;
     margin-left: -60%;
-    }
+  }
 
   .dropdown_content {
     display: none;
@@ -161,7 +157,7 @@ import Faelgmed from "../components/Faelgmed.astro";
     z-index: 1;
   }
 
-  .dropdown_content button{
+  .dropdown_content button {
     color: black;
     text-decoration: none;
     font-size: var(--font-size-p-mobile);
@@ -169,7 +165,6 @@ import Faelgmed from "../components/Faelgmed.astro";
     display: flex;
     padding: 2px 2px;
   }
-
 
   .dropdown_content button:hover {
     background-color: #cdc7c7;
@@ -183,12 +178,10 @@ import Faelgmed from "../components/Faelgmed.astro";
   }
 
   .button::after {
-            content: '\25BC'; /* Unicode for downwards triangle */
-            margin-left: 30px;
-            font-size: 11px;
-          
-        }
-
+    content: "\25BC"; /* Unicode for downwards triangle */
+    margin-left: 30px;
+    font-size: 11px;
+  }
 
   .button {
     display: inline-block;
@@ -212,7 +205,7 @@ import Faelgmed from "../components/Faelgmed.astro";
       max-width: 500px;
     }
 
-    .dropdown{
+    .dropdown {
       margin-left: -35%;
     }
   }
@@ -221,17 +214,16 @@ import Faelgmed from "../components/Faelgmed.astro";
     #hero {
       height: 750px;
     }
- 
-.button{
-  padding: 6px 10px;
-  width: 120px;
-}
-    .dropdown{
+
+    .button {
+      padding: 6px 10px;
+      width: 120px;
+    }
+    .dropdown {
       position: relative;
       display: flex;
       justify-content: center;
-    margin-left: -45%;
-  
+      margin-left: -45%;
     }
 
     .dropdown:hover .dropdown_content {
@@ -240,13 +232,11 @@ import Faelgmed from "../components/Faelgmed.astro";
     }
 
     .button::after {
-            content: '\25BC'; /* Unicode for downwards triangle */
-            margin-left: 40px;
-            font-size: 11px;
-          
-        }
+      content: "\25BC"; /* Unicode for downwards triangle */
+      margin-left: 40px;
+      font-size: 11px;
+    }
 
-       
     .h1_hero {
       font-size: 40px;
       font-weight: 500;
@@ -263,7 +253,6 @@ import Faelgmed from "../components/Faelgmed.astro";
       margin-top: 10%;
     }
 
-
     .forside_p {
       display: flex;
       align-items: center;
@@ -275,7 +264,7 @@ import Faelgmed from "../components/Faelgmed.astro";
       max-width: 500px;
     }
 
-    .overskrifter_tekst{
+    .overskrifter_tekst {
       font-size: 25px;
       padding-bottom: 20px;
     }
@@ -303,50 +292,35 @@ import Faelgmed from "../components/Faelgmed.astro";
       left: 45%;
       transform: rotate(-12deg);
     }
-
-    
   }
 </style>
 
-
 <script>
-
   const cards = document.querySelectorAll("a");
 
- 
   cards.forEach((card) => {
     card.classList.add("show");
   });
 
+  const dropdown = document.querySelector(".dropdown");
 
-const dropdown = document.querySelector('.dropdown');
+  // Hvis dropdown-menuen blev fundet
+  if (dropdown) {
+    // Vælg knapperne inde i dropdown-menuen
+    const dropdownButtons = dropdown.querySelectorAll("button[data-month]");
 
-// Hvis dropdown-menuen blev fundet
-if (dropdown) {
-  // Vælg knapperne inde i dropdown-menuen
-  const dropdownButtons = dropdown.querySelectorAll('button[data-month]');
-
-  // Tilføj en klikhåndterer til hver knap inde i dropdown-menuen
-  dropdownButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const target = e.currentTarget.dataset.month;
-      cards.forEach((card) => {
-        if (card.dataset.filter === target) {
-          card.classList.add("show");
-        } else {
-          card.classList.remove("show");
-        }
+    // Tilføj en klikhåndterer til hver knap inde i dropdown-menuen
+    dropdownButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const target = e.currentTarget.dataset.month;
+        cards.forEach((card) => {
+          if (card.dataset.filter === target) {
+            card.classList.add("show");
+          } else {
+            card.classList.remove("show");
+          }
+        });
       });
     });
-  });
-}
-
-
-
-
-
-
-
-
-
+  }
 </script>

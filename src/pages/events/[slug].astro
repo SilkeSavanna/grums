@@ -1,136 +1,112 @@
 ---
 import "../../styles/general.css";
 import Mainlayout from "../../layouts/mainlayout.astro";
-import Button from "../../components/Button.astro"
 import Header from "../../components/Header.astro";
+import Buttons from "../../components/Buttons.astro";
 
 export async function getStaticPaths() {
-const data = await fetch("https://fkvbxsksimndhsbkchww.supabase.co/rest/v1/events", {
-  method: "GET",
-  headers: {
-    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZrdmJ4c2tzaW1uZGhzYmtjaHd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU4NjAzNjIsImV4cCI6MjAzMTQzNjM2Mn0.I7TEX9S8OxEgBrIqbrRGY80VTS1Du_GIGu_tTfMhudk",
+  const data = await fetch("https://fkvbxsksimndhsbkchww.supabase.co/rest/v1/events", {
+    method: "GET",
+    headers: {
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZrdmJ4c2tzaW1uZGhzYmtjaHd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU4NjAzNjIsImV4cCI6MjAzMTQzNjM2Mn0.I7TEX9S8OxEgBrIqbrRGY80VTS1Du_GIGu_tTfMhudk",
+    },
+  }).then((response) => response.json());
 
-  },
-})
-
-.then((response)=> response.json());
-
-return data.map((event)=> {
+  return data.map((event) => {
     return {
-        params: {slug: event.slug},
-        props: { myData: event},
+      params: { slug: event.slug },
+      props: { myData: event },
     };
-});
-
-};
+  });
+}
 
 const { myData } = Astro.props;
-console.log(myData)
-
+console.log(myData);
 ---
 
 <Mainlayout>
+  <Header />
 
-    <Header></Header>
-    
-<article class="grid_singleview">
-<div>
-    <img src={"/public/img/" + `${myData.image}`} alt="" />
-</div>
-<div class="text">
-<h1>{myData.name}</h1>
-<div class="flex_01">
-    <p class="small"><i>{myData.Time}</i></p>
-    <p class="small"><i>{myData.location}</i></p>
-    <p class="small"><i>{myData.price} kr</i></p>
-</div>
-<p>{myData.description}</p>
+  <article class="grid_singleview">
+    <div>
+      <img src={"/public/img/" + `${myData.image}`} alt="" />
+    </div>
+    <div class="text">
+      <h1>{myData.name}</h1>
+      <div class="flex_01">
+        <p class="small"><i>{myData.Time}</i></p>
+        <p class="small"><i>{myData.location}</i></p>
+        <p class="small"><i>{myData.price} kr</i></p>
+      </div>
+      <p>{myData.description}</p>
 
-<p>Dato: {myData.dato}</p>
+      <p>Dato: {myData.dato}</p>
 
-<h1>PRAKTISK INFO</h1>
-<p>Pris: {myData.price} kr</p>
-<p>Lokation: {myData.location} </p>
+      <h1>PRAKTISK INFO</h1>
+      <p>Pris: {myData.price} kr</p>
+      <p>Lokation: {myData.location}</p>
 
-<p class="last">{myData.information}</p>
+      <p class="last">{myData.information}</p>
 
-<Button></Button>
-
-</div>
-</article>
+      <Buttons variant="primary" size="medium">Tilmeld dig her</Buttons>
+    </div>
+  </article>
 </Mainlayout>
 
-
 <style>
-
-
-img{
+  img {
     display: block;
     margin: auto;
     width: 80%;
     padding-top: 40px;
-}
+  }
 
-
-p{
+  p {
     text-align: justify;
     margin-bottom: 10px;
-   
+  }
 
-}
-
-
-h1{
+  h1 {
     font-family: roboto;
     font-weight: 400;
     margin-top: 60px;
+  }
 
-}
-
-.flex_01{
+  .flex_01 {
     display: flex;
     justify-content: start;
     margin-bottom: 10px;
-
-}
-
-.small{
-    margin: 0 0;
-}
-
-.small::after {
-    content: "/";
-    margin-left: 5px; 
-    margin-right: 5px; 
-}
-
-.text{
-   
-    margin: 1rem 2.5rem 5rem;
-}
-
-
-
-.last{
-    margin-bottom: 30px;
-}
-
-@media (min-width: 800px){
-  .grid_singleview{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 150px;
-    margin-top: 50px;
   }
 
-  h1{
-    margin-top: 20px;
-    margin-bottom: 40px;
+  .small {
+    margin: 0 0;
+  }
 
-}
+  .small::after {
+    content: "/";
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 
-}
+  .text {
+    margin: 1rem 2.5rem 5rem;
+  }
+
+  .last {
+    margin-bottom: 30px;
+  }
+
+  @media (min-width: 800px) {
+    .grid_singleview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 150px;
+      margin-top: 50px;
+    }
+
+    h1 {
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+  }
 </style>
-
-
-

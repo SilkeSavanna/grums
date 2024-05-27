@@ -58,7 +58,7 @@ justify-content: center;
   }
 
   h1{
-    font-size: 1.5rem;
+    font-size: var(--font-size-h1-desktop);
     color: var(---red);
     text-align: center;
   }
@@ -99,18 +99,20 @@ margin-top: 20px;
 .form button{
     height: 55px;
     width: 100%;
-    background-color: var(--beige);
-    font-size: 1rem;
+    background-color: var(---red);
+    font-size: 1.5rem;
     border: none;
     margin-top: 30px;
     cursor: pointer;
     border-radius: 6px;
     transition: all 0.2s ease;
-    color: var(---red);
+    color: var(--beige);
+    font-family: "Roboto";
 }
 
 .form button:hover{
-    background-color: beige;
+    background-color: var(--beige);
+    color: var(---red);
 }
 
 .popup{

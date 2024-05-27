@@ -1,0 +1,35 @@
+---
+import Footer from "../components/Footer.astro";
+import "../styles/general.css";
+import Omsideanimation from "../components/Omsideanimation.astro";
+import Karrusel from "../components/Karrusel.astro";
+import Header from "../components/Header.astro";
+import Faelgmed from "../components/Faelgmed.astro";
+import Mainlayout from "../layouts/mainlayout.astro";
+---
+
+<Header />
+
+<h1>Indholdproduktion til sociale medier</h1>
+
+<h2>Video 1</h2>
+<p>Promovering af events</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FoBvUzO1jxg?si=fd9W7obIUyfL0htN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<h2>Video 2</h2>
+<p>Vinevent video</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CgX-uG0Rrp4?si=tirVm_U3P0LZvssj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<h2>Eventplakat</h2>
+<p>Opslag af plakat</p>
+<img src="/public/img/eventplakat_content.webp" alt="eventplakat" />
+
+<style>
+  .video_layout {
+    display: flex;
+  }
+
+  img {
+    width: 500px;
+  }
+</style>

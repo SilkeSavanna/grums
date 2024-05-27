@@ -21,7 +21,7 @@ import Faelgmed from "../components/Faelgmed.astro";
       </div>
     </div>
     <div class="hero_box2">
-      <Eventknap />
+      <a href="#events"><Buttons variant="secondary" size="medium">Se events</Buttons></a>
     </div>
   </section>
   <main>
@@ -51,6 +51,12 @@ import Faelgmed from "../components/Faelgmed.astro";
 
     <Faelgmed />
 
+    <div class="billeder">
+      <img src="../../public/img/gertrud_jose.webp" alt="">
+      <img src="../../public/img/vin_oliven.webp" alt="">
+      <img src="../../public/img/mennesker.webp" alt="">
+    </div>
+
     <div class="overskrifter">
       <h3 class="overskrifter_tekst">Vin & Øl</h3>
       <h3 class="overskrifter_tekst">Kaffe & Bagværk</h3>
@@ -65,7 +71,7 @@ import Faelgmed from "../components/Faelgmed.astro";
   #hero {
     width: 100%;
     height: 300px;
-    background-image: url(../../public/img/herosection_img.webp);
+    background-image: url(../../public/img/hero_3.webp);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -87,9 +93,9 @@ import Faelgmed from "../components/Faelgmed.astro";
 
   .h1_hero {
     font-size: 20px;
-    color: white;
-    font-family: "Roboto";
-    font-weight: 500;
+    color: var(--beige);
+    /* -webkit-text-stroke: 1px var(--beige); */
+
     padding-left: 70px;
     padding-right: 70px;
     margin-top: 38%;
@@ -150,6 +156,9 @@ import Faelgmed from "../components/Faelgmed.astro";
     /* margin-left: -70%; */
   }
 
+  .label{
+    font-family: "Roboto";
+  }
   .dropdown_content {
     display: none;
     position: absolute;
@@ -195,12 +204,25 @@ import Faelgmed from "../components/Faelgmed.astro";
     border-radius: 5px;
   }
 
+  .billeder{
+    padding: 10px 50px;
+    gap: 20px;
+  }
+
+  .billeder img{
+    margin-bottom: 30px;
+  }
+
   @media (min-width: 600px) {
     .forside_p {
       display: flex;
       align-items: center;
       justify-content: center;
     }
+
+    .label .button{
+    font-family: "Roboto";
+  }
     .forside_p p {
       position: relative;
       font-size: var(--font-size-p-desktop);
@@ -214,6 +236,14 @@ import Faelgmed from "../components/Faelgmed.astro";
   }
 
   @media (min-width: 800px) {
+
+    .billeder{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 20px 180px;
+      gap: 30px;
+
+    }
     #hero {
       height: 750px;
     }
@@ -221,6 +251,7 @@ import Faelgmed from "../components/Faelgmed.astro";
     .button {
       padding: 6px 10px;
       width: 120px;
+      font-family: "Roboto";
     }
     .dropdown {
       position: relative;
@@ -243,7 +274,6 @@ import Faelgmed from "../components/Faelgmed.astro";
 
     .h1_hero {
       font-size: 40px;
-      font-weight: 500;
       padding-left: 0;
       margin-top: 4%;
       margin-bottom: 3%;

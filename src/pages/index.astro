@@ -1,9 +1,10 @@
 ---
+import Button from "../components/Button.astro";
+import Eventknap from "../components/Eventknap.astro";
 import Burgermenu from "../components/Burgermenu.astro";
 import Karruselforside from "../components/Karruselforside.astro";
 import Mainlayout from "../layouts/mainlayout.astro";
 import Faelgmed from "../components/Faelgmed.astro";
-import Buttons from "../components/Buttons.astro";
 ---
 
 <Mainlayout>
@@ -20,7 +21,7 @@ import Buttons from "../components/Buttons.astro";
       </div>
     </div>
     <div class="hero_box2">
-      <Buttons variant="secondary" size="medium">Se events</Buttons>
+      <Eventknap />
     </div>
   </section>
   <main>
@@ -91,10 +92,7 @@ import Buttons from "../components/Buttons.astro";
     font-weight: 500;
     padding-left: 70px;
     padding-right: 70px;
-    margin-top: 30%;
-    font-family: "calliope-mvb", sans-serif;
-    font-weight: 700;
-    font-style: normal;
+    margin-top: 38%;
   }
 
   .logo {
@@ -142,10 +140,6 @@ import Buttons from "../components/Buttons.astro";
 
   .overskrifter_tekst {
     padding-bottom: 10px;
-    font-weight: 400;
-    font-family: "calliope-mvb", sans-serif;
-    font-weight: 500;
-    font-size: 20px;
   }
 
   .dropdown {
@@ -253,7 +247,6 @@ import Buttons from "../components/Buttons.astro";
       padding-left: 0;
       margin-top: 4%;
       margin-bottom: 3%;
-      padding: 0;
     }
 
     .logo {

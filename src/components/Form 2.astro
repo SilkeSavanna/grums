@@ -26,8 +26,6 @@ import "../styles/general.css";
 </div>
 <button>Tilmeld</button>
     </form>
-
-    
 </section>
 
 <div class="popup" id="popup">
@@ -119,21 +117,18 @@ margin-top: 20px;
 
 .popup{
     min-width: 350px;
-    height: 200px;
-    background: var(--beige);
+    height: 460px;
+    background: white;
     border-radius: 6px;
-
-
-    
+    position: absolute;
+  margin-top: -230px;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     padding: 0 30px 0;
     color: var(---red);
     visibility: hidden;
    
-}
-
-.hidden{
-    display: none;
 }
 
 .popup h2{
@@ -157,6 +152,10 @@ background-color: white;
     visibility: visible;
 }
 
+.hidden{
+    display: none;
+}
+
 
 @media (min-width: 800px) {
     .form .column{
@@ -165,37 +164,69 @@ background-color: white;
 
     .popup{
         width: 700px;
-
-        height: 200px;
+        margin-top: -180px;
+        height: 360px;
     }
 }
 </style>
 
 <script>
+
     // Event listener for form submission
-    document.querySelector("form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Forhindrer formularen i at blive indsendt og siden i at genindlæse
-        openPopup(event);
-    });
+document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Forhindrer formularen i at blive indsendt og siden i at genindlæse
+    openPopup(event);
+});
+
+// Funktion for at åbne popup
+function openPopup(event) {
+    event.preventDefault(); // Tilføjet for at forhindre standardformularindsendelse
+    let popup = document.getElementById("popup");
+    let container = document.querySelector(".container"); // Ændret for at finde sektionen med klassen 'container'
+    popup.classList.add("openPopup");
+    container.classList.add("hidden"); // Skjul sektionen med klassen 'container'
+}
+
+// Funktion for at lukke popup
+function closePopup() {
+    let popup = document.getElementById("popup");
+    let container = document.querySelector(".container"); // Ændret for at finde sektionen med klassen 'container'
+    popup.classList.remove("openPopup");
+    container.classList.remove("hidden"); // Vis sektionen med klassen 'container' igen
+}
+
+// Tilføj event listener for "OK"-knappen
+document.querySelector(".ok_button").addEventListener("click", function(event) {
+    closePopup();
+});
+
+
+    // // Event listener for form submission
+    // document.querySelector("form").addEventListener("submit", function(event) {
+    //     event.preventDefault(); // Forhindrer formularen i at blive indsendt og siden i at genindlæse
+    //     openPopup(event);
+    // });
     
-    // Funktion for at åbne popup
-    function openPopup(event) {
-        event.preventDefault(); // Tilføjet for at forhindre standardformularindsendelse
-        let popup = document.getElementById("popup");
-        let form = document.querySelector(".container");
-        popup.classList.add("openPopup");
-        form.classList.add("hidden");
-    }
+    // // Funktion for at åbne popup
+    // function openPopup(event) {
+    //     event.preventDefault(); // Tilføjet for at forhindre standardformularindsendelse
+    //     let popup = document.getElementById("popup");
+    //     let form = document.querySelector(".container");
+    //     popup.classList.add("openPopup");
+    //     form.classList.add("hidden");
+    // }
     
-    // Ingen ændring her
-    function closePopup() {
-        let popup = document.getElementById("popup");
-        popup.classList.remove("openPopup");
-    }
+    // // Ingen ændring her
+    // function closePopup() {
+    //     let popup = document.getElementById("popup");
+        
+    //     popup.classList.remove("openPopup");
+        
+    // }
     
-    // Tilføj event listener for "OK"-knappen
-    document.querySelector(".ok_button").addEventListener("click", function(event) {
-        closePopup();
-    });
+    // // Tilføj event listener for "OK"-knappen
+    // document.querySelector(".ok_button").addEventListener("click", function(event) {
+    //     closePopup();
+    // });
     
     </script>

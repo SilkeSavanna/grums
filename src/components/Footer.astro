@@ -4,6 +4,7 @@ import "../styles/general.css";
 
 
 <footer>
+    <hr>
     <div class="row">
 <div class="col">
     <h2>Åbningstider</h2>
@@ -132,9 +133,18 @@ footer{
 }
 
 
-
+hr{
+    border: none; /* Fjern standardgrænsen */
+    border-top: 2px solid var(---yellow); /* Tilføj farve og tykkelse til toppen */
+    width: 100%; /* Juster bredden efter behov */
+    margin-bottom: 60px; /* Juster margin efter behov */
+}
 
 @media (min-width: 800px){
+
+    hr{
+        margin-bottom: 90px;
+    }
     h2{
     font-size: var(--font-size-h2-desktop);
     margin-bottom: 30px;
@@ -148,7 +158,7 @@ p{
 .row{
     display: flex;
     justify-content: center;
-  gap: 80px;
+  gap: 80px;}
 
 form{
     display: flex;
@@ -210,6 +220,9 @@ a{
     color: var(---red);
 }
 
+
 }
+
+
 
 </style>

@@ -4,6 +4,7 @@ import Karruselforside from "../components/Karruselforside.astro";
 import Mainlayout from "../layouts/mainlayout.astro";
 import Faelgmed from "../components/Faelgmed.astro";
 import Buttons from "../components/Buttons.astro";
+import Forsideanimation from "../components/Forsideanimation.astro";
 ---
 
 <Mainlayout>
@@ -50,6 +51,8 @@ import Buttons from "../components/Buttons.astro";
 
     <Faelgmed />
 
+    <Forsideanimation />
+    <!-- 
     <div class="overskrifter">
       <h3 class="overskrifter_tekst">Vin & Øl</h3>
       <h3 class="overskrifter_tekst">Kaffe & Bagværk</h3>
@@ -57,291 +60,292 @@ import Buttons from "../components/Buttons.astro";
       <h3 class="overskrifter_tekst">Fælleskab</h3>
       <h3 class="overskrifter_tekst">Mødested</h3>
     </div>
+  </main> -->
   </main>
-</Mainlayout>
 
-<style>
-  #hero {
-    width: 100%;
-    height: 300px;
-    background-image: url(../../public/img/herosection_img.webp);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-
-  .hero_box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .hero_box2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 10px;
-  }
-
-  .h1_hero {
-    font-size: 20px;
-    color: white;
-    font-family: "Roboto";
-    font-weight: 500;
-    padding-left: 70px;
-    padding-right: 70px;
-    margin-top: 30%;
-    font-family: "calliope-mvb", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-  }
-
-  .logo {
-    display: none;
-  }
-
-  .forside_p p {
-    padding-left: 80px;
-    padding-right: 80px;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    text-align: center;
-  }
-
-  .veardiord1 {
-    width: 35%;
-    position: relative;
-    padding-top: 100px;
-    left: 10%;
-    transform: rotate(-10deg);
-  }
-
-  .veardiord2 {
-    width: 37%;
-    position: absolute;
-    transform: rotate(20deg);
-    left: 51%;
-    top: 400px;
-  }
-
-  .veardiord3 {
-    width: 30%;
-    position: absolute;
-    top: 470px;
-    left: 35%;
-    transform: rotate(-12deg);
-  }
-
-  .overskrifter {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-bottom: 100px;
-  }
-
-  .overskrifter_tekst {
-    padding-bottom: 10px;
-    font-weight: 400;
-    font-family: "calliope-mvb", sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-  }
-
-  .dropdown {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    left: -135px;
-    /* margin-left: -70%; */
-  }
-
-  .dropdown_content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 40px;
-    font-size: 12px;
-    z-index: 1;
-  }
-
-  .dropdown_content button {
-    color: black;
-    text-decoration: none;
-    font-size: var(--font-size-p-mobile);
-    border: none;
-    display: flex;
-    padding: 2px 2px;
-  }
-
-  .dropdown_content button:hover {
-    background-color: #cdc7c7;
-  }
-
-  .dropdown:hover .dropdown_content {
-    display: flex;
-    flex-direction: column;
-    top: 22px;
-    width: 100px;
-  }
-
-  .button::after {
-    content: "\25BC"; /* Unicode for downwards triangle */
-    margin-left: 30px;
-    font-size: 11px;
-  }
-
-  .button {
-    display: inline-block;
-    background-color: var(---red);
-    color: var(--beige);
-    width: 100px;
-    padding: 3px 8px;
-    margin-bottom: 2%;
-    border-radius: 5px;
-  }
-
-  @media (min-width: 600px) {
-    .forside_p {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .forside_p p {
-      position: relative;
-      font-size: var(--font-size-p-desktop);
-      max-width: 500px;
-    }
-
-    .dropdown {
-      left: -135px;
-      /* margin-left: -70%; */
-    }
-  }
-
-  @media (min-width: 800px) {
+  <style>
     #hero {
-      height: 750px;
+      width: 100%;
+      height: 300px;
+      background-image: url(../../public/img/herosection_img.webp);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
     }
 
-    .button {
-      padding: 6px 10px;
-      width: 120px;
-    }
-    .dropdown {
-      position: relative;
+    .hero_box {
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      left: -320px;
-      /* margin-left: -80%; */
+      text-align: center;
     }
 
-    .dropdown:hover .dropdown_content {
-      width: 120px;
+    .hero_box2 {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
       margin-top: 10px;
     }
 
-    .button::after {
-      content: "\25BC"; /* Unicode for downwards triangle */
-      margin-left: 40px;
-      font-size: 11px;
-    }
-
     .h1_hero {
-      font-size: 40px;
+      font-size: 20px;
+      color: white;
+      font-family: "Roboto";
       font-weight: 500;
-      padding-left: 0;
-      margin-top: 4%;
-      margin-bottom: 3%;
-      padding: 0;
+      padding-left: 70px;
+      padding-right: 70px;
+      margin-top: 30%;
+      font-family: "calliope-mvb", sans-serif;
+      font-weight: 700;
+      font-style: normal;
     }
 
     .logo {
-      display: block;
-      width: 200px;
-      height: 200px;
-      margin-left: 43%;
-      margin-top: 10%;
+      display: none;
     }
 
-    .forside_p {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
     .forside_p p {
-      position: relative;
-      font-size: var(--font-size-p-desktop);
-      max-width: 500px;
+      padding-left: 80px;
+      padding-right: 80px;
+      padding-top: 100px;
+      padding-bottom: 100px;
+      text-align: center;
     }
 
-    .overskrifter_tekst {
-      font-size: 25px;
-      padding-bottom: 20px;
-    }
     .veardiord1 {
-      width: 20%;
+      width: 35%;
       position: relative;
-      padding-top: 150px;
-      padding-bottom: 50px;
-      left: 30%;
+      padding-top: 100px;
+      left: 10%;
       transform: rotate(-10deg);
     }
 
     .veardiord2 {
-      width: 20%;
+      width: 37%;
       position: absolute;
       transform: rotate(20deg);
-      left: 52%;
-      top: 900px;
+      left: 51%;
+      top: 400px;
     }
 
     .veardiord3 {
-      width: 15%;
+      width: 30%;
       position: absolute;
-      top: 1020px;
-      left: 45%;
+      top: 470px;
+      left: 35%;
       transform: rotate(-12deg);
     }
-  }
 
-  @media (min-width: 1200px) {
+    /* .overskrifter {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      margin-bottom: 100px;
+    }
+
+    .overskrifter_tekst {
+      padding-bottom: 10px;
+      font-weight: 400;
+      font-family: "calliope-mvb", sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+    } */
+
     .dropdown {
       position: relative;
       display: flex;
       justify-content: center;
-      left: -320px;
-      /* margin-left: -45%; */
+      left: -135px;
+      /* margin-left: -70%; */
     }
-  }
-</style>
 
-<script>
-  const cards = document.querySelectorAll("a");
+    .dropdown_content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 40px;
+      font-size: 12px;
+      z-index: 1;
+    }
 
-  cards.forEach((card) => {
-    card.classList.add("show");
-  });
+    .dropdown_content button {
+      color: black;
+      text-decoration: none;
+      font-size: var(--font-size-p-mobile);
+      border: none;
+      display: flex;
+      padding: 2px 2px;
+    }
 
-  const dropdown = document.querySelector(".dropdown");
+    .dropdown_content button:hover {
+      background-color: #cdc7c7;
+    }
 
-  // Hvis dropdown-menuen blev fundet
-  if (dropdown) {
-    // Vælg knapperne inde i dropdown-menuen
-    const dropdownButtons = dropdown.querySelectorAll("button[data-month]");
+    .dropdown:hover .dropdown_content {
+      display: flex;
+      flex-direction: column;
+      top: 22px;
+      width: 100px;
+    }
 
-    // Tilføj en klikhåndterer til hver knap inde i dropdown-menuen
-    dropdownButtons.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        const target = e.currentTarget.dataset.month;
-        cards.forEach((card) => {
-          if (card.dataset.filter === target) {
-            card.classList.add("show");
-          } else {
-            card.classList.remove("show");
-          }
+    .button::after {
+      content: "\25BC"; /* Unicode for downwards triangle */
+      margin-left: 30px;
+      font-size: 11px;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: var(---red);
+      color: var(--beige);
+      width: 100px;
+      padding: 3px 8px;
+      margin-bottom: 2%;
+      border-radius: 5px;
+    }
+
+    @media (min-width: 600px) {
+      .forside_p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .forside_p p {
+        position: relative;
+        font-size: var(--font-size-p-desktop);
+        max-width: 500px;
+      }
+
+      .dropdown {
+        left: -135px;
+        /* margin-left: -70%; */
+      }
+    }
+
+    @media (min-width: 800px) {
+      #hero {
+        height: 750px;
+      }
+
+      .button {
+        padding: 6px 10px;
+        width: 120px;
+      }
+      .dropdown {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        left: -320px;
+        /* margin-left: -80%; */
+      }
+
+      .dropdown:hover .dropdown_content {
+        width: 120px;
+        margin-top: 10px;
+      }
+
+      .button::after {
+        content: "\25BC"; /* Unicode for downwards triangle */
+        margin-left: 40px;
+        font-size: 11px;
+      }
+
+      .h1_hero {
+        font-size: 40px;
+        font-weight: 500;
+        padding-left: 0;
+        margin-top: 4%;
+        margin-bottom: 3%;
+        padding: 0;
+      }
+
+      .logo {
+        display: block;
+        width: 200px;
+        height: 200px;
+        margin-left: 43%;
+        margin-top: 10%;
+      }
+
+      .forside_p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .forside_p p {
+        position: relative;
+        font-size: var(--font-size-p-desktop);
+        max-width: 500px;
+      }
+
+      .overskrifter_tekst {
+        font-size: 25px;
+        padding-bottom: 20px;
+      }
+      .veardiord1 {
+        width: 20%;
+        position: relative;
+        padding-top: 150px;
+        padding-bottom: 50px;
+        left: 30%;
+        transform: rotate(-10deg);
+      }
+
+      .veardiord2 {
+        width: 20%;
+        position: absolute;
+        transform: rotate(20deg);
+        left: 52%;
+        top: 900px;
+      }
+
+      .veardiord3 {
+        width: 15%;
+        position: absolute;
+        top: 1020px;
+        left: 45%;
+        transform: rotate(-12deg);
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .dropdown {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        left: -320px;
+        /* margin-left: -45%; */
+      }
+    }
+  </style>
+
+  <script>
+    const cards = document.querySelectorAll("a");
+
+    cards.forEach((card) => {
+      card.classList.add("show");
+    });
+
+    const dropdown = document.querySelector(".dropdown");
+
+    // Hvis dropdown-menuen blev fundet
+    if (dropdown) {
+      // Vælg knapperne inde i dropdown-menuen
+      const dropdownButtons = dropdown.querySelectorAll("button[data-month]");
+
+      // Tilføj en klikhåndterer til hver knap inde i dropdown-menuen
+      dropdownButtons.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const target = e.currentTarget.dataset.month;
+          cards.forEach((card) => {
+            if (card.dataset.filter === target) {
+              card.classList.add("show");
+            } else {
+              card.classList.remove("show");
+            }
+          });
         });
       });
-    });
-  }
-</script>
+    }
+  </script>
+</Mainlayout>

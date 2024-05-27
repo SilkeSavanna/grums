@@ -1,0 +1,315 @@
+---
+import "../styles/general.css";
+---
+
+<section>
+  <div class="overskrifter">
+    <h3 class="overskrifter_tekst">Vin & Øl</h3>
+    <h3 class="overskrifter_tekst">Kaffe & Bagværk</h3>
+    <h3 class="overskrifter_tekst">Kunst</h3>
+    <h3 class="overskrifter_tekst">Fælleskab</h3>
+    <h3 class="overskrifter_tekst">Mødested</h3>
+  </div>
+  <div class="animation">
+    <div>
+      <img class="vinflaske" src="public/img/flaskevin.webp" alt="flaskevin" />
+    </div>
+    <div>
+      <img class="vinglas" src="public/img/vinglas.webp" alt="vinglas" />
+    </div>
+    <div>
+      <img class="kop" src="public/img/kaffekop2.webp" alt="kaffekop" />
+    </div>
+    <div>
+      <img class="disco" src="public/img/disco.webp" alt="disco" />
+    </div>
+    <div>
+      <img class="crossaint" src="public/img/crossaint.webp" alt="crossaint" />
+    </div>
+  </div>
+</section>
+<style>
+  .overskrifter {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 100px;
+  }
+
+  .overskrifter_tekst {
+    padding-bottom: 10px;
+    font-weight: 400;
+    font-family: "calliope-mvb", sans-serif;
+    font-weight: 500;
+    font-size: var(--font-size-h1-mobile);
+  }
+
+  .animation {
+    height: 70px;
+    position: relative;
+  }
+
+  .animation img {
+    position: absolute;
+  }
+
+  .vinflaske {
+    width: 28%;
+    position: absolute;
+    left: 10%;
+    top: -530px;
+    padding-top: 10%;
+    animation: rotate 1.5s infinite linear; /* 5 sekunders animationstid */
+  }
+
+  .vinglas {
+    width: 39%;
+    position: absolute;
+    left: -9.5%;
+    top: -477px;
+    animation: rotate 1.5s infinite linear; /* 5 sekunders animationstid */
+  }
+
+  .disco {
+    width: 65%;
+    position: absolute;
+    left: -14.5%;
+    top: -344px;
+    animation: pulse 1s infinite linear; /* 5 sekunders animationstid */
+  }
+
+  .crossaint {
+    width: 20%;
+    position: absolute;
+    left: 68.5%;
+    top: -140px;
+    animation: rotate 1.5s infinite linear; /* 5 sekunders animationstid */
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(0.9);
+    }
+    50% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0.9);
+    }
+  }
+  .kop {
+    width: 20%;
+    position: absolute;
+    left: 66%;
+    top: -314px;
+    animation: drej 1.5s infinite; /* 5 sekunders animationstid */
+  }
+
+  @keyframes drej {
+    0% {
+      rotate: 0;
+    }
+
+    100% {
+      rotate: 360deg;
+    }
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(-9deg);
+    }
+    50% {
+      transform: rotate(9deg);
+    }
+    100% {
+      transform: rotate(-9deg);
+    }
+  }
+
+  @media (min-width: 500px) {
+    .vinflaske {
+      width: 23%;
+      left: 19%;
+      top: -580px;
+    }
+
+    .vinglas {
+      width: 37%;
+      left: -0.5%;
+      top: -529px;
+    }
+
+    .disco {
+      width: 55%;
+      left: -1.5%;
+      top: -398px;
+    }
+
+    .crossaint {
+      width: 13%;
+      left: 63.5%;
+      top: -140px;
+    }
+    .kop {
+      width: 15%;
+      left: 61%;
+      top: -311px;
+    }
+  }
+
+  @media (min-width: 690px) {
+    .vinflaske {
+      width: 19%;
+      left: 24%;
+      top: -580px;
+    }
+
+    .vinglas {
+      width: 30%;
+      left: 8.5%;
+      top: -519px;
+    }
+
+    .disco {
+      width: 44%;
+      left: 7.5%;
+      top: -377px;
+    }
+
+    .crossaint {
+      width: 12%;
+      left: 60.5%;
+      top: -140px;
+    }
+    .kop {
+      width: 12%;
+      left: 61%;
+      top: -311px;
+    }
+  }
+
+  @media (min-width: 800px) {
+    .vinflaske {
+      width: 15%;
+      left: 28%;
+      top: -580px;
+    }
+
+    .vinglas {
+      width: 23%;
+      left: 15.5%;
+      top: -500px;
+    }
+
+    .disco {
+      width: 28%;
+      left: 20.5%;
+      top: -327px;
+    }
+
+    .crossaint {
+      width: 9%;
+      left: 60.5%;
+      top: -140px;
+    }
+    .kop {
+      width: 11%;
+      left: 61%;
+      top: -315px;
+    }
+  }
+
+  @media (min-width: 950px) {
+    .vinflaske {
+      width: 12%;
+      left: 32%;
+      top: -580px;
+    }
+
+    .vinglas {
+      width: 19%;
+      left: 20.5%;
+      top: -500px;
+    }
+
+    .disco {
+      width: 23%;
+      left: 25.5%;
+      top: -327px;
+    }
+
+    .crossaint {
+      width: 9%;
+      left: 56.5%;
+      top: -140px;
+    }
+    .kop {
+      width: 9%;
+      left: 57%;
+      top: -315px;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .vinflaske {
+      width: 9%;
+      left: 37%;
+      top: -590px;
+    }
+
+    .vinglas {
+      width: 14%;
+      left: 28.5%;
+      top: -490px;
+    }
+
+    .disco {
+      width: 20%;
+      left: 28.5%;
+      top: -327px;
+    }
+
+    .crossaint {
+      width: 7%;
+      left: 56.5%;
+      top: -140px;
+    }
+    .kop {
+      width: 7%;
+      left: 55.5%;
+      top: -315px;
+    }
+  }
+
+  @media (min-width: 1300px) {
+    .vinflaske {
+      width: 8.5%;
+      left: 38%;
+      top: -650px;
+    }
+
+    .vinglas {
+      width: 12%;
+      left: 31.5%;
+      top: -500px;
+    }
+
+    .disco {
+      width: 19%;
+      left: 31.5%;
+      top: -377px;
+    }
+
+    .crossaint {
+      width: 5%;
+      left: 54.5%;
+      top: -140px;
+    }
+    .kop {
+      width: 5.5%;
+      left: 54.5%;
+      top: -315px;
+    }
+  }
+</style>

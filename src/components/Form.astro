@@ -1,0 +1,192 @@
+---
+import "../styles/general.css";
+---
+<main>
+<section class="container">
+    <h1>Registrering</h1>
+    <form action="#" class="form">
+<div class="input-box">
+    <label>Fulde Navn</label>
+    <input type="text" placeholder="Skriv fulde navn" required>
+</div>
+<div class="input-box">
+    <label>Email Adresse</label>
+    <input type="text" placeholder="Skriv fulde navn" required>
+</div>
+
+<div class="column">
+<div class="input-box">
+    <label>Nummer</label>
+    <input type="text" placeholder="Skriv nummer" required>
+</div>
+<div class="input-box">
+    <label>Antal</label>
+    <input type="number" placeholder="Skriv antal" required>
+</div>
+</div>
+<button>Tilmeld</button>
+    </form>
+
+    <div class="popup" id="popup">
+        <h2>Tak</h2>
+        <p>Vi glæder os til at se dig/jer!</p>
+        <a href="/"> <button class="ok_button" onclick="closePopup()" type="button">OK</button></a>
+    </div>
+</section>
+</main>
+
+
+<style>
+
+main{
+background-color: var(--beige);
+display: flex;
+align-items: center;
+justify-content: center;
+    flex-direction: column;
+    padding: 0 20px;
+    margin-bottom: 50px;
+  }
+  .container{
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 30px;
+  }
+
+  h1{
+    font-size: 1.5rem;
+    color: var(---red);
+    text-align: center;
+  }
+
+  .container .form{
+margin-top: 30px;
+  }
+
+  .form .input-box{
+width: 100%;
+margin-top: 20px;
+  }
+
+  .input-box label{
+    color: var(---red);
+  }
+
+
+.form .input-box input{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+    font-size: 1rem;
+    color: var(---red);
+    margin-top: 8px;
+}
+
+.form .column{
+    display: flex;
+    column-gap: 15px;
+    flex-wrap: wrap;
+}
+
+.form button{
+    height: 55px;
+    width: 100%;
+    background-color: var(--beige);
+    font-size: 1rem;
+    border: none;
+    margin-top: 30px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    color: var(---red);
+}
+
+.form button:hover{
+    background-color: beige;
+}
+
+.popup{
+    min-width: 350px;
+    height: 460px;
+    background: white;
+    border-radius: 6px;
+    position: absolute;
+  margin-top: -230px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 0 30px 0;
+    color: var(---red);
+    visibility: hidden;
+   
+}
+
+.popup h2{
+    margin: 20px 0 5px;
+}
+
+.ok_button{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 0;
+    border-color: var(---red);
+outline: var(---red);
+border-radius: 4px;
+cursor: pointer;
+color: var(---red);
+background-color: white;
+/* box-shadow: 0 5px 5px rgba(223, 93, 93, 0.852); */
+}
+
+.openPopup{
+    visibility: visible;
+}
+
+
+@media (min-width: 800px) {
+    .form .column{
+        flex-wrap: nowrap;
+    }
+
+    .popup{
+        width: 700px;
+        margin-top: -180px;
+        height: 360px;
+    }
+}
+</style>
+
+<script>
+    // Event listener for form submission
+    document.querySelector("form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Forhindrer formularen i at blive indsendt og siden i at genindlæse
+        openPopup(event);
+    });
+    
+    // Funktion for at åbne popup
+    function openPopup(event) {
+        event.preventDefault(); // Tilføjet for at forhindre standardformularindsendelse
+        let popup = document.getElementById("popup");
+        popup.classList.add("openPopup");
+    }
+    
+    // Ingen ændring her
+    function closePopup() {
+        let popup = document.getElementById("popup");
+        popup.classList.remove("openPopup");
+    }
+    
+    // Tilføj event listener for "OK"-knappen
+    document.querySelector(".ok_button").addEventListener("click", function(event) {
+        closePopup();
+    });
+    
+    </script>

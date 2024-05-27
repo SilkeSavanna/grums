@@ -30,6 +30,7 @@ console.log(myData)
 ---
 
 <Mainlayout>
+<<<<<<< HEAD
 
     <Header></Header>
     
@@ -58,6 +59,34 @@ console.log(myData)
 
 </div>
 </article>
+=======
+  <Header />
+
+  <article class="grid_singleview">
+    <div>
+      <img src={"/public/img/" + `${myData.image}`} alt="" />
+    </div>
+    <div class="text">
+      <h1>{myData.name}</h1>
+      <div class="flex_01">
+        <p class="small"><i>{myData.Time}</i></p>
+        <p class="small"><i>{myData.location}</i></p>
+        <p class="small"><i>{myData.price} kr</i></p>
+      </div>
+      <p>{myData.description}</p>
+
+      <p>Dato: {myData.dato}</p>
+
+      <h1>PRAKTISK INFO</h1>
+      <p>Pris: {myData.price} kr</p>
+      <p>Lokation: {myData.location}</p>
+
+      <p class="last">{myData.information}</p>
+
+      <a href="/tak"><Buttons variant="primary" size="medium">Tilmeld dig her</Buttons></a>
+    </div>
+  </article>
+>>>>>>> 0500075140e0a30457f0f4fc8cdf8153aff42aaf
 </Mainlayout>
 
 

@@ -45,7 +45,7 @@ import "../styles/general.css";
        <div class="popup" id="popup">
         <h2>Tak</h2>
         <p>Dine detaljer er blevet gemt</p>
-        <button class="ok_button" onclick="closePopup()" type="button">OK</button>
+        <button aria-label="pil_button" role="button" class="ok_button" onclick="closePopup()" type="button">OK</button>
     </div>
    
        
@@ -141,10 +141,10 @@ footer{
 
 
 hr{
-    border: none; /* Fjern standardgrænsen */
-    border-top: 2px solid var(---yellow); /* Tilføj farve og tykkelse til toppen */
-    width: 100%; /* Juster bredden efter behov */
-    margin-bottom: 60px; /* Juster margin efter behov */
+    border: none; 
+    border-top: 2px solid var(---yellow); 
+    width: 100%; 
+    margin-bottom: 60px; 
 }
 
 .popup {

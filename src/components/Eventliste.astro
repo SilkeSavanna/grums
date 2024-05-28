@@ -8,7 +8,7 @@ import "../styles/general.css";
 <article>
   <img src={"/img/" + `${data.image}`} alt="img_event" />
   <div class="text">
-    <p>Dato: {data.dato}</p>
+    <b><p>Dato: {data.dato}</p></b>
    <b><p>{data.price}kr.</p></b> 
   </div>
 </article>
@@ -40,8 +40,8 @@ import "../styles/general.css";
   }
 
   .text {
-    border-left: 2px solid var(---red);   /* Øverste border */
-    border-right: 2px solid var(---red); /* Højre border */
+    border-left: 2px solid var(---red);   
+    border-right: 2px solid var(---red); 
     border-bottom: 2px solid var(---red);
     display: flex;
     justify-content: center;

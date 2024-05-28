@@ -1,7 +1,7 @@
 ---
 import "../../styles/general.css";
 import Mainlayout from "../../layouts/mainlayout.astro";
-import Buttons from "../../components/Button.astro";
+import Buttons from "../../components/Buttons.astro";
 import Header from "../../components/Header.astro";
 
 export async function getStaticPaths() {
@@ -29,22 +29,21 @@ console.log(myData);
 
   <article class="grid_singleview">
     <div>
-      <img src={"/img/" + `${myData.image}`} alt="" />
+      <img  width="500" height="auto"  src={"/img/" + `${myData.image}`} alt="" />
     </div>
     <div class="text">
       <h1>{myData.name}</h1>
-      <div class="flex_01">
-        <p class="small"><i>{myData.Time}</i></p>
-        <p class="small"><i>{myData.location}</i></p>
-        <p class="small"><i>{myData.price} kr</i></p>
-      </div>
+
       <p>{myData.description}</p>
 
-      <p>Dato: {myData.dato}</p>
+     
 
-      <h1>PRAKTISK INFO</h1>
-      <p>Pris: {myData.price} kr</p>
-      <p>Lokation: {myData.location}</p>
+      <h1 class="praktiskinfo">PRAKTISK INFO</h1>
+     
+      <p> <b>Dato:</b> {myData.dato}</p>
+      <p><b>Tidspunkt:</b> {myData.Time}</p>
+      <p><b>Lokation:</b> {myData.location}</p>
+      <p><b>Pris:</b> {myData.price} kr</p>
 
       <p class="last">{myData.information}</p>
 
@@ -96,6 +95,7 @@ console.log(myData);
 
   .last {
     margin-bottom: 30px;
+    margin-top: 30px;
   }
 
   @media (min-width: 800px) {
@@ -106,8 +106,12 @@ console.log(myData);
     }
 
     h1 {
+      margin-bottom: 5px;
       margin-top: 20px;
-      margin-bottom: 40px;
+    }
+
+    .praktiskinfo{
+        margin-top:60px; ;
     }
   }
 </style>

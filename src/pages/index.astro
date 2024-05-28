@@ -15,15 +15,18 @@ import Forsideanimation from "../components/Forsideanimation.astro";
 
     <div class="hero_box">
       <img class="logo" src="../img/logo_grums.webp" alt="" />
-
-      <div>
-        <h1 class="h1_hero">Et fælleskab for Københavns lokale</h1>
-      </div>
     </div>
     <div class="hero_box2">
       <a href="#events"><Buttons variant="secondary" size="medium">Se events</Buttons></a>
     </div>
   </section>
+
+  <!-- <section>
+    <div>
+      <h1 class="h1_hero">Et fælleskab for Københavns lokale</h1>
+    </div>
+  </section> -->
+
   <main>
     <img class="veardiord1" src="../img/tryghed.webp" alt="tryghed_keyword" />
 
@@ -53,8 +56,8 @@ import Forsideanimation from "../components/Forsideanimation.astro";
 
     <div class="billeder">
       <img width="500" height="auto" src="../img/gertrud_jose.webp" alt="" />
-      <img  width="500" height="auto" src="../img/vin_oliven.webp" alt="" />
-      <img  width="500" height="auto"  src="../img/mennesker.webp" alt="" />
+      <img width="500" height="auto" src="../img/vin_oliven.webp" alt="" />
+      <img width="500" height="auto" src="../img/mennesker.webp" alt="" />
     </div>
 
     <Forsideanimation />
@@ -81,18 +84,16 @@ import Forsideanimation from "../components/Forsideanimation.astro";
       display: flex;
       /* flex-direction: row; */
       justify-content: center;
-      margin-top: 10px;
+      margin-top: 225px;
     }
 
-    .h1_hero {
-      font-size: 20px;
-      color: var(---yellow);
-      /* -webkit-text-stroke: 1px var(--beige); */
-
+    /* .h1_hero {
+      font-size: 16px;
+      color: var(---red);
       padding-left: 70px;
       padding-right: 70px;
       margin-top: 38%;
-    }
+    } */
 
     .logo {
       display: none;
@@ -170,7 +171,7 @@ import Forsideanimation from "../components/Forsideanimation.astro";
     }
 
     .button::after {
-      content: "\25BC"; 
+      content: "\25BC";
       margin-left: 30px;
       font-size: 11px;
     }
@@ -181,7 +182,7 @@ import Forsideanimation from "../components/Forsideanimation.astro";
       color: var(--beige);
       width: 100px;
       padding: 3px 8px;
-    
+
       border-radius: 5px;
     }
 
@@ -212,7 +213,6 @@ import Forsideanimation from "../components/Forsideanimation.astro";
 
       .dropdown {
         left: -135px;
-        
       }
     }
 
@@ -227,6 +227,13 @@ import Forsideanimation from "../components/Forsideanimation.astro";
         height: 750px;
       }
 
+      .hero_box2 {
+        display: flex;
+        /* flex-direction: row; */
+        justify-content: center;
+        margin-top: 200px;
+      }
+
       .button {
         padding: 6px 10px;
         width: 120px;
@@ -237,7 +244,6 @@ import Forsideanimation from "../components/Forsideanimation.astro";
         display: flex;
         justify-content: center;
         left: -320px;
-        
       }
 
       .dropdown:hover .dropdown_content {
@@ -246,7 +252,7 @@ import Forsideanimation from "../components/Forsideanimation.astro";
       }
 
       .button::after {
-        content: "\25BC"; 
+        content: "\25BC";
         margin-left: 40px;
         font-size: 11px;
       }
@@ -256,14 +262,14 @@ import Forsideanimation from "../components/Forsideanimation.astro";
         padding-left: 0;
         margin-top: 4%;
         margin-bottom: 3%;
-        -webkit-text-stroke: 2px var(---red);
       }
 
       .logo {
         display: block;
         width: 200px;
         height: 200px;
-        margin-left: 43%;
+        align-self: center;
+        /* margin-left: 37%; */
         margin-top: 10%;
       }
 
@@ -308,7 +314,22 @@ import Forsideanimation from "../components/Forsideanimation.astro";
       }
     }
 
+    @media (min-width: 900px) {
+      .hero_box2 {
+        display: flex;
+        /* flex-direction: row; */
+        justify-content: center;
+        margin-top: 200px;
+      }
+    }
+
     @media (min-width: 1200px) {
+      .hero_box2 {
+        display: flex;
+        /* flex-direction: row; */
+        justify-content: center;
+        margin-top: 200px;
+      }
       .dropdown {
         position: relative;
         display: flex;

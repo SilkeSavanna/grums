@@ -47,7 +47,7 @@ console.log(myData);
 
       <p class="last">{myData.information}</p>
 
-      <a href="/tak"><Buttons variant="primary" size="medium">Tilmeld dig her</Buttons></a>
+      <a href="/tak"><Buttons class="button" variant="secondary" size="medium">Tilmeld dig her</Buttons></a>
     </div>
   </article>
 </Mainlayout>
@@ -56,19 +56,25 @@ console.log(myData);
   img {
     display: block;
     margin: auto;
-    width: 80%;
+    /* width: 50%; */
     padding-top: 40px;
+  }
+
+  .grid_singleview{
+margin: 0 100px 100px 100px;
   }
 
   p {
     text-align: justify;
     margin-bottom: 10px;
+    font-size: var(--font-size-p-mobile);
   }
 
   h1 {
     font-family: roboto;
     font-weight: 400;
     margin-top: 60px;
+    font-size: var(--font-size-h1-mobile);
   }
 
   .flex_01 {
@@ -87,31 +93,54 @@ console.log(myData);
     margin-right: 5px;
   }
 
-  .text {
-    margin-top: 60px;
-    margin-bottom: 60px;
-    margin: 1rem 3rem;
-  }
+  /* .text {
+margin: 0 120px 120px 120px;
+  } */
 
   .last {
     margin-bottom: 30px;
     margin-top: 30px;
   }
 
+ 
+
   @media (min-width: 800px) {
     .grid_singleview {
       display: grid;
       grid-template-columns: 1fr 1fr;
       margin-bottom: 100px;
+      gap: 40px;
+      margin-top: 40px;
     }
 
     h1 {
       margin-bottom: 5px;
-      margin-top: 20px;
+      margin-top: 0;
+      /* margin-top: 20px; */
+      font-size: var(--font-size-h1-desktop);
     }
 
     .praktiskinfo{
         margin-top:60px; ;
     }
+p{
+  font-size: var(--font-size-p-desktop);
+}
+    /* .text {
+margin-top: 20px;
+    margin-bottom: 60px;
+    margin-right:  8rem;
+    margin-left: 0;
+  } */
+
+  img {
+    display: block;
+    padding-top: 0;
+    margin: auto;
+    min-width: 60%;
+    max-width: 400px;
+  
+  
+  }
   }
 </style>

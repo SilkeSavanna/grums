@@ -13,10 +13,9 @@ img {
 :root {
   /*farver*/
 
-  ---background-color: #f3ede3;
-  ---red: #e30613;
+  --background-color: #f3ede3;
+  --red: #e30613;
   ---yellow: #ffce5c;
-  ---blue: #9dc7e7;
   --beige: #f3ede3;
   --text-color: #e30613;
 
@@ -38,7 +37,7 @@ img {
 }
 
 body {
-  background-color: var(---background-color);
+  background-color: var(--background-color);
 }
 
 h1,

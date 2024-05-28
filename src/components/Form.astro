@@ -180,22 +180,22 @@ border: none;
 </style>
 
 <script>
-    // Event listener for form submission
+   
     document.querySelector("form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Forhindrer formularen i at blive indsendt og siden i at genindlæse
+        event.preventDefault(); 
         openPopup(event);
     });
     
     // Funktion for at åbne popup
     function openPopup(event) {
-        event.preventDefault(); // Tilføjet for at forhindre standardformularindsendelse
+        event.preventDefault(); 
         let popup = document.getElementById("popup");
         let form = document.querySelector(".container");
         popup.classList.add("openPopup");
         form.classList.add("hidden");
     }
     
-    // Ingen ændring her
+    
     function closePopup() {
         let popup = document.getElementById("popup");
         popup.classList.remove("openPopup");

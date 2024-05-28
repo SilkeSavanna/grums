@@ -1,0 +1,36 @@
+---
+import Burgermenu from "../components/Burgermenu.astro";
+import "../styles/general.css";
+---
+
+<header>
+  <Burgermenu />
+</header>
+
+<style>
+  header {
+    z-index: 10;
+    position: sticky;
+    top: 0px;
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+  }
+
+  header.active {
+    background-color: var(--beige);
+    height: 80px;
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    window.addEventListener("scroll", function () {
+      const header = document.querySelector("header");
+      if (window.scrollY > 3) {
+        header.classList.add("active");
+      } else {
+        header.classList.remove("active");
+      }
+    });
+  });
+</script>

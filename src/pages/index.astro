@@ -5,14 +5,13 @@ import Mainlayout from "../layouts/mainlayout.astro";
 import Faelgmed from "../components/Faelgmed.astro";
 import Buttons from "../components/Buttons.astro";
 import Forsideanimation from "../components/Forsideanimation.astro";
+import Headerforside from "../components/Headerforside.astro";
 ---
 
 <Mainlayout>
-  <section id="hero">
-    <header>
-      <Burgermenu />
-    </header>
+  <Headerforside />
 
+  <section id="hero">
     <div class="hero_box">
       <img class="logo" src="../img/logo_grums.webp" alt="" />
     </div>
@@ -20,12 +19,6 @@ import Forsideanimation from "../components/Forsideanimation.astro";
       <a href="#events"><Buttons variant="secondary" size="medium">Se events</Buttons></a>
     </div>
   </section>
-
-  <!-- <section>
-    <div>
-      <h1 class="h1_hero">Et fælleskab for Københavns lokale</h1>
-    </div>
-  </section> -->
 
   <main>
     <img class="veardiord1" src="../img/tryghed.webp" alt="tryghed_keyword" />
@@ -62,317 +55,316 @@ import Forsideanimation from "../components/Forsideanimation.astro";
 
     <Forsideanimation />
   </main>
+</Mainlayout>
 
-  <style>
-    #hero {
-      /* width: 100%; */
-      height: 300px;
-      background-image: url(../../public/img/hero_3.webp);
-      /* background-repeat: no-repeat; */
-      background-position: center;
-      background-size: cover;
+<style>
+  #hero {
+    /* width: 100%; */
+    height: 300px;
+    background-image: url(../../public/img/hero_3.webp);
+    /* background-repeat: no-repeat; */
+    background-position: center;
+    background-size: cover;
+  }
+
+  .hero_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero_box2 {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    margin-top: 90px;
+  }
+
+  .logo {
+    display: block;
+    width: 90px;
+    height: 90px;
+    align-self: center;
+    /* margin-left: 37%; */
+    margin-top: 12%;
+  }
+
+  .forside_p p {
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    text-align: center;
+  }
+
+  .veardiord1 {
+    width: 35%;
+    position: relative;
+    padding-top: 100px;
+    left: 10%;
+    transform: rotate(-10deg);
+  }
+
+  .veardiord2 {
+    width: 37%;
+    position: absolute;
+    transform: rotate(20deg);
+    left: 51%;
+    top: 400px;
+  }
+
+  .veardiord3 {
+    width: 30%;
+    position: absolute;
+    top: 470px;
+    left: 35%;
+    transform: rotate(-12deg);
+  }
+
+  .dropdown {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    left: -135px;
+  }
+
+  .label {
+    font-family: "Roboto";
+  }
+  .dropdown_content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 40px;
+    font-size: 12px;
+    z-index: 1;
+  }
+
+  .dropdown_content button {
+    color: var(--red);
+    text-decoration: none;
+    font-size: var(--font-size-p-mobile);
+    border: none;
+    display: flex;
+    padding: 2px 2px;
+  }
+
+  .dropdown_content button:hover {
+    background-color: #cdc7c7;
+  }
+
+  .dropdown:hover .dropdown_content {
+    display: flex;
+    flex-direction: column;
+    top: 22px;
+    width: 100px;
+  }
+
+  .button::after {
+    content: "\25BC";
+    margin-left: 30px;
+    font-size: 11px;
+  }
+
+  .button {
+    display: inline-block;
+    background-color: var(--red);
+    color: var(--beige);
+    width: 100px;
+    padding: 3px 8px;
+    font-family: Roboto;
+    border-radius: 5px;
+  }
+
+  .billeder {
+    padding: 10px 50px;
+    gap: 20px;
+  }
+
+  .billeder img {
+    margin-bottom: 30px;
+  }
+
+  @media (min-width: 600px) {
+    .hero_box2 {
+      display: flex;
+      /* flex-direction: row; */
+      justify-content: center;
+      margin-top: 80px;
     }
 
-    .hero_box {
+    .forside_p {
       display: flex;
-      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      text-align: center;
+    }
+
+    .label .button {
+      font-family: "Roboto";
+    }
+    .forside_p p {
+      position: relative;
+      font-size: var(--font-size-p-desktop);
+      max-width: 500px;
+    }
+
+    .dropdown {
+      left: -135px;
+    }
+  }
+
+  @media (min-width: 800px) {
+    .billeder {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 20px 180px;
+      gap: 30px;
+    }
+    #hero {
+      height: 750px;
     }
 
     .hero_box2 {
       display: flex;
       /* flex-direction: row; */
       justify-content: center;
-      margin-top: 90px;
+      margin-top: 200px;
     }
 
-    .logo {
-      display: block;
-      width: 90px;
-      height: 90px;
-      align-self: center;
-      /* margin-left: 37%; */
-      margin-top: 12%;
+    .button {
+      padding: 6px 10px;
+      width: 120px;
+      font-family: "Roboto";
     }
-
-    .forside_p p {
-      padding-left: 80px;
-      padding-right: 80px;
-      padding-top: 100px;
-      padding-bottom: 100px;
-      text-align: center;
-    }
-
-    .veardiord1 {
-      width: 35%;
-      position: relative;
-      padding-top: 100px;
-      left: 10%;
-      transform: rotate(-10deg);
-    }
-
-    .veardiord2 {
-      width: 37%;
-      position: absolute;
-      transform: rotate(20deg);
-      left: 51%;
-      top: 400px;
-    }
-
-    .veardiord3 {
-      width: 30%;
-      position: absolute;
-      top: 470px;
-      left: 35%;
-      transform: rotate(-12deg);
-    }
-
     .dropdown {
       position: relative;
       display: flex;
       justify-content: center;
-      left: -135px;
-    }
-
-    .label {
-      font-family: "Roboto";
-    }
-    .dropdown_content {
-      display: none;
-      position: absolute;
-      background-color: white;
-      min-width: 40px;
-      font-size: 12px;
-      z-index: 1;
-    }
-
-    .dropdown_content button {
-      color: var(--red);
-      text-decoration: none;
-      font-size: var(--font-size-p-mobile);
-      border: none;
-      display: flex;
-      padding: 2px 2px;
-    }
-
-    .dropdown_content button:hover {
-      background-color: #cdc7c7;
+      left: -320px;
     }
 
     .dropdown:hover .dropdown_content {
-      display: flex;
-      flex-direction: column;
-      top: 22px;
-      width: 100px;
+      width: 120px;
+      margin-top: 10px;
     }
 
     .button::after {
       content: "\25BC";
-      margin-left: 30px;
+      margin-left: 40px;
       font-size: 11px;
     }
 
-    .button {
-      display: inline-block;
-      background-color: var(--red);
-      color: var(--beige);
-      width: 100px;
-      padding: 3px 8px;
-
-      border-radius: 5px;
+    .h1_hero {
+      font-size: 50px;
+      padding-left: 0;
+      margin-top: 4%;
+      margin-bottom: 3%;
+      -webkit-text-stroke: 2px var(--red);
     }
 
-    .billeder {
-      padding: 10px 50px;
-      gap: 20px;
+    .logo {
+      display: block;
+      width: 200px;
+      height: 200px;
+      align-self: center;
+      /* margin-left: 37%; */
+      margin-top: 10%;
     }
 
-    .billeder img {
-      margin-bottom: 30px;
+    .forside_p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .forside_p p {
+      position: relative;
+      font-size: var(--font-size-p-desktop);
+      max-width: 500px;
     }
 
-    @media (min-width: 600px) {
-      .hero_box2 {
-        display: flex;
-        /* flex-direction: row; */
-        justify-content: center;
-        margin-top: 80px;
-      }
-
-      .forside_p {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .label .button {
-        font-family: "Roboto";
-      }
-      .forside_p p {
-        position: relative;
-        font-size: var(--font-size-p-desktop);
-        max-width: 500px;
-      }
-
-      .dropdown {
-        left: -135px;
-      }
+    .overskrifter_tekst {
+      font-size: 25px;
+      padding-bottom: 20px;
+    }
+    .veardiord1 {
+      width: 20%;
+      position: relative;
+      padding-top: 150px;
+      padding-bottom: 50px;
+      left: 30%;
+      transform: rotate(-10deg);
     }
 
-    @media (min-width: 800px) {
-      .billeder {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        padding: 20px 180px;
-        gap: 30px;
-      }
-      #hero {
-        height: 750px;
-      }
-
-      .hero_box2 {
-        display: flex;
-        /* flex-direction: row; */
-        justify-content: center;
-        margin-top: 200px;
-      }
-
-      .button {
-        padding: 6px 10px;
-        width: 120px;
-        font-family: "Roboto";
-      }
-      .dropdown {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        left: -320px;
-      }
-
-      .dropdown:hover .dropdown_content {
-        width: 120px;
-        margin-top: 10px;
-      }
-
-      .button::after {
-        content: "\25BC";
-        margin-left: 40px;
-        font-size: 11px;
-      }
-
-      .h1_hero {
-        font-size: 50px;
-        padding-left: 0;
-        margin-top: 4%;
-        margin-bottom: 3%;
-        -webkit-text-stroke: 2px var(--red);
-
-      }
-
-      .logo {
-        display: block;
-        width: 200px;
-        height: 200px;
-        align-self: center;
-        /* margin-left: 37%; */
-        margin-top: 10%;
-      }
-
-      .forside_p {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .forside_p p {
-        position: relative;
-        font-size: var(--font-size-p-desktop);
-        max-width: 500px;
-      }
-
-      .overskrifter_tekst {
-        font-size: 25px;
-        padding-bottom: 20px;
-      }
-      .veardiord1 {
-        width: 20%;
-        position: relative;
-        padding-top: 150px;
-        padding-bottom: 50px;
-        left: 30%;
-        transform: rotate(-10deg);
-      }
-
-      .veardiord2 {
-        width: 20%;
-        position: absolute;
-        transform: rotate(20deg);
-        left: 52%;
-        top: 900px;
-      }
-
-      .veardiord3 {
-        width: 15%;
-        position: absolute;
-        top: 1020px;
-        left: 45%;
-        transform: rotate(-12deg);
-      }
+    .veardiord2 {
+      width: 20%;
+      position: absolute;
+      transform: rotate(20deg);
+      left: 52%;
+      top: 900px;
     }
 
-    @media (min-width: 900px) {
-      .hero_box2 {
-        display: flex;
-        /* flex-direction: row; */
-        justify-content: center;
-        margin-top: 200px;
-      }
+    .veardiord3 {
+      width: 15%;
+      position: absolute;
+      top: 1020px;
+      left: 45%;
+      transform: rotate(-12deg);
     }
+  }
 
-    @media (min-width: 1200px) {
-      .hero_box2 {
-        display: flex;
-        /* flex-direction: row; */
-        justify-content: center;
-        margin-top: 200px;
-      }
-      .dropdown {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        left: -320px;
-        /* margin-left: -45%; */
-      }
+  @media (min-width: 900px) {
+    .hero_box2 {
+      display: flex;
+      /* flex-direction: row; */
+      justify-content: center;
+      margin-top: 200px;
     }
-  </style>
+  }
 
-  <script>
-    const cards = document.querySelectorAll("a");
+  @media (min-width: 1200px) {
+    .hero_box2 {
+      display: flex;
+      /* flex-direction: row; */
+      justify-content: center;
+      margin-top: 200px;
+    }
+    .dropdown {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      left: -320px;
+      /* margin-left: -45%; */
+    }
+  }
+</style>
 
-    cards.forEach((card) => {
-      card.classList.add("show");
-    });
+<script>
+  const cards = document.querySelectorAll("a");
 
-    const dropdown = document.querySelector(".dropdown");
+  cards.forEach((card) => {
+    card.classList.add("show");
+  });
 
-    // Hvis dropdown-menuen blev fundet
-    if (dropdown) {
-      // Vælg knapperne inde i dropdown-menuen
-      const dropdownButtons = dropdown.querySelectorAll("button[data-month]");
+  const dropdown = document.querySelector(".dropdown");
 
-      // Tilføj en klikhåndterer til hver knap inde i dropdown-menuen
-      dropdownButtons.forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-          const target = e.currentTarget.dataset.month;
-          cards.forEach((card) => {
-            if (card.dataset.filter === target) {
-              card.classList.add("show");
-            } else {
-              card.classList.remove("show");
-            }
-          });
+  // Hvis dropdown-menuen blev fundet
+  if (dropdown) {
+    // Vælg knapperne inde i dropdown-menuen
+    const dropdownButtons = dropdown.querySelectorAll("button[data-month]");
+
+    // Tilføj en klikhåndterer til hver knap inde i dropdown-menuen
+    dropdownButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const target = e.currentTarget.dataset.month;
+        cards.forEach((card) => {
+          if (card.dataset.filter === target) {
+            card.classList.add("show");
+          } else {
+            card.classList.remove("show");
+          }
         });
       });
-    }
-  </script>
-</Mainlayout>
+    });
+  }
+</script>

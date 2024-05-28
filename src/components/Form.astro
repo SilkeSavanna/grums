@@ -1,55 +1,52 @@
 ---
 import "../styles/general.css";
 ---
+
 <main>
-<section class="container">
+  <section class="container">
     <h1>Registrering</h1>
     <form action="#" class="form">
-<div class="input-box">
-    <label>Fulde Navn</label>
-    <input type="text" placeholder="Skriv fulde navn" required>
-</div>
-<div class="input-box">
-    <label>Email Adresse</label>
-    <input type="text" placeholder="Skriv fulde navn" required>
-</div>
+      <div class="input-box">
+        <label>Fulde Navn</label>
+        <input type="text" placeholder="Skriv fulde navn" required />
+      </div>
+      <div class="input-box">
+        <label>Email Adresse</label>
+        <input type="text" placeholder="Skriv fulde navn" required />
+      </div>
 
-<div class="column">
-<div class="input-box">
-    <label>Nummer</label>
-    <input type="text" placeholder="Skriv nummer" required>
-</div>
-<div class="input-box">
-    <label>Antal</label>
-    <input type="number" placeholder="Skriv antal" required>
-</div>
-</div>
-<button>Tilmeld</button>
+      <div class="column">
+        <div class="input-box">
+          <label>Nummer</label>
+          <input type="text" placeholder="Skriv nummer" required />
+        </div>
+        <div class="input-box">
+          <label>Antal</label>
+          <input type="number" placeholder="Skriv antal" required />
+        </div>
+      </div>
+      <button>Tilmeld</button>
     </form>
+  </section>
 
-    
-</section>
-
-<div class="popup" id="popup">
+  <div class="popup" id="popup">
     <h2>Tak</h2>
     <p>Vi glæder os til at se dig/jer!</p>
     <a href="/"> <button class="ok_button" onclick="closePopup()" type="button">OK</button></a>
-</div>
+  </div>
 </main>
 
-
 <style>
-
-main{
-background-color: var(--beige);
-display: flex;
-align-items: center;
-justify-content: center;
+  main {
+    background-color: var(--beige);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     padding: 0 20px;
     margin-bottom: 50px;
   }
-  .container{
+  .container {
     position: relative;
     max-width: 700px;
     width: 100%;
@@ -59,29 +56,28 @@ justify-content: center;
     margin-top: 30px;
   }
 
-  h1{
+  h1 {
     font-size: var(--font-size-h1-desktop);
     color: var(--red);
     text-align: center;
     font-family: Roboto;
   }
 
-  .container .form{
-margin-top: 30px;
+  .container .form {
+    margin-top: 30px;
   }
 
-  .form .input-box{
-width: 100%;
-margin-top: 20px;
+  .form .input-box {
+    width: 100%;
+    margin-top: 20px;
   }
 
-  .input-box label{
+  .input-box label {
     color: var(--red);
     font-family: Roboto;
   }
 
-
-.form .input-box input{
+  .form .input-box input {
     position: relative;
     height: 50px;
     width: 100%;
@@ -92,15 +88,15 @@ margin-top: 20px;
     font-size: 1rem;
     color: var(--red);
     margin-top: 8px;
-}
+  }
 
-.form .column{
+  .form .column {
     display: flex;
     column-gap: 15px;
     flex-wrap: wrap;
-}
+  }
 
-.form button{
+  .form button {
     height: 55px;
     width: 100%;
     background-color: var(--red);
@@ -113,97 +109,91 @@ margin-top: 20px;
     transition: all 0.2s ease;
     color: var(--beige);
     font-family: "Roboto";
-}
+  }
 
-.form button:hover{
+  .form button:hover {
     color: var(--red);
     background-color: var(--beige);
     border: 2px solid var(--red);
-}
+  }
 
-.popup{
+  .popup {
     min-width: 350px;
-    height: 200px;
     background: var(--beige);
     border-radius: 6px;
 
-
-    
     text-align: center;
     padding: 0 30px 0;
     color: var(--red);
     visibility: hidden;
-   
-}
-
-.hidden{
     display: none;
-}
+  }
 
-.popup h2{
+  .hidden {
+    display: none;
+  }
+
+  .popup h2 {
     margin: 20px 0 5px;
-}
+  }
 
-.ok_button{
+  .ok_button {
     width: 50%;
     margin-top: 10px;
     padding: 10px 0;
-border-radius: 4px;
-cursor: pointer;
-color: var(--beige);
-background-color: var(--red);
-border: none;
-}
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--beige);
+    background-color: var(--red);
+    border: none;
+  }
 
-.openPopup{
+  .openPopup {
     visibility: visible;
-}
+    display: block;
+  }
 
-.ok_button:hover{
+  .ok_button:hover {
     color: var(--red);
     background-color: var(--beige);
     border: 2px solid var(--red);
-}
+  }
 
-
-@media (min-width: 800px) {
-    .form .column{
-        flex-wrap: nowrap;
+  @media (min-width: 800px) {
+    .form .column {
+      flex-wrap: nowrap;
     }
 
-    .popup{
-        width: 700px;
+    .popup {
+      width: 700px;
 
-        height: 200px;
+      height: 200px;
     }
-}
+  }
 </style>
 
 <script>
-   
-    document.querySelector("form").addEventListener("submit", function(event) {
-        event.preventDefault(); 
-        openPopup(event);
-    });
-    
-    // Funktion for at åbne popup
-    function openPopup(event) {
-        event.preventDefault(); 
-        let popup = document.getElementById("popup");
-        let form = document.querySelector(".container");
-        popup.classList.add("openPopup");
-        form.classList.add("hidden");
-    }
-    
-    
-    function closePopup() {
-        let popup = document.getElementById("popup");
-        popup.classList.remove("openPopup");
-    }
-    
-    // Tilføj event listener for "OK"-knappen
-    document.querySelector(".ok_button").addEventListener("click", function(event) {
-        closePopup();
-    });
-    
-    </script>
+  document.querySelector("form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    openPopup(event);
+  });
+
+  // Funktion for at åbne popup
+  function openPopup(event) {
+    event.preventDefault();
+    let popup = document.getElementById("popup");
+    let form = document.querySelector(".container");
+    popup.classList.add("openPopup");
+    form.classList.add("hidden");
+  }
+
+  function closePopup() {
+    let popup = document.getElementById("popup");
+    popup.classList.remove("openPopup");
+  }
+
+  // Tilføj event listener for "OK"-knappen
+  document.querySelector(".ok_button").addEventListener("click", function (event) {
+    closePopup();
+  });
+</script>

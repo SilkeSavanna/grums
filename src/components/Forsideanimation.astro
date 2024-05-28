@@ -57,36 +57,38 @@ import "../styles/general.css";
   }
 
   .vinflaske {
-    width: 28%;
-    position: absolute;
-    left: 10%;
-    top: -530px;
+    width: 130px;
+    left: 9.6%;
+    top: -563px;
     padding-top: 10%;
     animation: rotate 1.5s infinite linear; /* 5 sekunders animationstid */
   }
 
   .vinglas {
-    width: 39%;
-    position: absolute;
-    left: -9.5%;
-    top: -477px;
+    width: 50px;
+    left: 2%;
+    top: -426px;
     animation: rotate 1.5s infinite linear; /* 5 sekunders animationstid */
   }
 
   .disco {
-    width: 65%;
-    position: absolute;
-    left: -14.5%;
-    top: -344px;
+    width: 83px;
+    left: 10.5%;
+    top: -244px;
     animation: pulse 1s infinite linear; /* 5 sekunders animationstid */
   }
 
   .crossaint {
-    width: 20%;
-    position: absolute;
-    left: 68.5%;
-    top: -140px;
+    width: 80px;
+    left: 65.5%;
+    top: -146px;
     animation: rotate 1.5s infinite linear; /* 5 sekunders animationstid */
+  }
+  .kop {
+    width: 83px;
+    left: 66%;
+    top: -320px;
+    animation: drej 1.5s infinite; /* 5 sekunders animationstid */
   }
 
   @keyframes pulse {
@@ -99,13 +101,6 @@ import "../styles/general.css";
     100% {
       transform: scale(0.9);
     }
-  }
-  .kop {
-    width: 20%;
-    position: absolute;
-    left: 66%;
-    top: -314px;
-    animation: drej 1.5s infinite; /* 5 sekunders animationstid */
   }
 
   @keyframes drej {
@@ -132,187 +127,133 @@ import "../styles/general.css";
 
   @media (min-width: 500px) {
     .vinflaske {
-      width: 23%;
-      left: 19%;
+      left: 15%;
       top: -580px;
     }
 
     .vinglas {
-      width: 37%;
-      left: -0.5%;
-      top: -529px;
+      left: 9.5%;
+      top: -429px;
     }
 
     .disco {
-      width: 55%;
-      left: -1.5%;
-      top: -398px;
+      left: 15.5%;
+      top: -248px;
     }
 
     .crossaint {
-      width: 13%;
       left: 63.5%;
       top: -140px;
     }
     .kop {
-      width: 15%;
       left: 61%;
       top: -311px;
     }
   }
 
   @media (min-width: 690px) {
+    .overskrifter_tekst {
+      font-size: var(--font-size-h1-desktop);
+    }
     .vinflaske {
-      width: 19%;
-      left: 24%;
-      top: -580px;
+      left: 23%;
+      top: -610px;
     }
 
     .vinglas {
-      width: 30%;
-      left: 8.5%;
-      top: -519px;
+      left: 18.5%;
+      top: -429px;
     }
 
     .disco {
-      width: 44%;
-      left: 7.5%;
-      top: -377px;
+      left: 25.5%;
+      top: -248px;
     }
 
     .crossaint {
-      width: 12%;
-      left: 60.5%;
-      top: -140px;
+      left: 60%;
+      top: -138px;
     }
     .kop {
-      width: 12%;
       left: 61%;
       top: -311px;
     }
   }
-
   @media (min-width: 800px) {
     .vinflaske {
-      width: 15%;
-      left: 28%;
-      top: -580px;
+      left: 27%;
+      top: -570px;
     }
 
     .vinglas {
-      width: 23%;
-      left: 15.5%;
-      top: -500px;
+      left: 23%;
+      top: -393px;
     }
 
     .disco {
-      width: 28%;
-      left: 20.5%;
-      top: -327px;
+      left: 29.5%;
+      top: -232px;
     }
 
     .crossaint {
-      width: 9%;
-      left: 60.5%;
-      top: -140px;
+      left: 55%;
+      top: -138px;
     }
     .kop {
-      width: 11%;
-      left: 61%;
-      top: -315px;
+      left: 56.5%;
+      top: -293px;
     }
   }
 
   @media (min-width: 950px) {
     .vinflaske {
-      width: 12%;
-      left: 32%;
-      top: -580px;
+      left: 30%;
+      top: -582px;
     }
 
     .vinglas {
-      width: 19%;
-      left: 20.5%;
-      top: -500px;
+      left: 27%;
+      top: -380px;
     }
 
     .disco {
-      width: 23%;
-      left: 25.5%;
-      top: -327px;
+      left: 34.5%;
+      top: -232px;
     }
 
     .crossaint {
-      width: 9%;
-      left: 56.5%;
-      top: -140px;
+      left: 57%;
+      top: -138px;
     }
     .kop {
-      width: 9%;
-      left: 57%;
-      top: -315px;
+      left: 55.5%;
+      top: -288px;
     }
   }
 
   @media (min-width: 1100px) {
     .vinflaske {
-      width: 9%;
       left: 37%;
-      top: -590px;
+      top: -630px;
     }
 
     .vinglas {
-      width: 14%;
-      left: 28.5%;
-      top: -490px;
+      left: 35%;
+      top: -385px;
     }
 
     .disco {
-      width: 20%;
-      left: 28.5%;
-      top: -327px;
-    }
-
-    .crossaint {
-      width: 7%;
-      left: 56.5%;
-      top: -140px;
-    }
-    .kop {
-      width: 7%;
-      left: 55.5%;
-      top: -315px;
-    }
-  }
-
-  @media (min-width: 1300px) {
-    .vinflaske {
-      width: 8.5%;
       left: 38%;
-      top: -650px;
-    }
-
-    .vinglas {
-      width: 12%;
-      left: 31.5%;
-      top: -500px;
-    }
-
-    .disco {
-      width: 19%;
-      left: 31.5%;
-      top: -377px;
+      top: -232px;
     }
 
     .crossaint {
-      width: 5%;
-      left: 54.5%;
-      top: -140px;
+      left: 54%;
+      top: -138px;
     }
     .kop {
-      width: 5.5%;
-      left: 54.5%;
-      top: -315px;
+      left: 53.5%;
+      top: -288px;
     }
   }
 </style>

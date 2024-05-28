@@ -187,13 +187,16 @@ import "../styles/general.css";
     form.classList.add("hidden");
   }
 
+  // Tilføj event listener for "OK"-knappen
+  document.querySelector(".ok_button").addEventListener("click", function (event) {
+    closePopup();
+  })
+
   function closePopup() {
     let popup = document.getElementById("popup");
     popup.classList.remove("openPopup");
   }
 
-  // Tilføj event listener for "OK"-knappen
-  document.querySelector(".ok_button").addEventListener("click", function (event) {
-    closePopup();
-  });
+  
+  ;
 </script>
